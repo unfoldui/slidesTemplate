@@ -26,7 +26,7 @@
 <div class="reveal">
 	<div class="slides">
 		<section data-transition="fade">
-			<h2>Agenda</h2>
+			<h2>Agenda of session</h2>
 			<ul>
 				<li>History of JS Frameworks</li>
 				<li>React as a view layer</li>
@@ -141,10 +141,10 @@ var html    = template(context);
 				<h2>JSX</h2>
 				<span>XML like syntax</span>
 				<ul>
-					<li>Render markup in your js code</li>
-					<li>This makes sense with small modular components</li>
-					<li>Babel can transpile JSX into plain old javascript</li>
-					<li>You can very easily write your javascript logic alongside your presentation layer</li>
+					<li class="fragment fade-in">Render markup in your js code</li>
+					<li class="fragment fade-in">This makes sense with small modular components</li>
+					<li class="fragment fade-in">Babel can transpile JSX into plain old javascript</li>
+					<li class="fragment fade-in">You can very easily write your javascript logic alongside your presentation layer</li>
 				</ul>
 			</section>
 		</section>
@@ -152,15 +152,14 @@ var html    = template(context);
 			<section>
 				<h2>Lets create a basic component</h2>
 				<div class="fragment fade-in">
-					<pre><code>class Welcome extends React.Component {
+					<pre><code>// Defining a component
+
+class Welcome extends React.Component {
   render() {
     return <h1>Hello!</h1>;
   }
 }
 					  </code></pre>
-				</div>
-				<div class="fragment fade-in">
-					<pre><code>< Welcome /></code></pre>
 				</div>
 			</section>
 			<section>
@@ -245,7 +244,8 @@ class Welcome extends React.Component {
 			<section>
 				<img src="./images/Artboard%201.png" alt="passing props example" height="500" width="400"/>
 				<div>
-					<a href="https://codepen.io/ShivamLatawa/pen/XepVzM?editors=0010" target="_blank">Link to Codepen</a>
+					<h5><a href="https://codepen.io/ShivamLatawa/pen/XepVzM?editors=0010" target="_blank">Link to Codepen</a></h5>
+					<span>https://goo.gl/2RkNu3</span>
 				</div>
 			</section>
 		</section>
