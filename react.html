@@ -1,261 +1,269 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>UI Bootcamp</title>
-	<meta name="description" content="Code & Learn: React & Redux Workshop, ThoughtWorks">
-	<meta name="author" content="Abhinav Sharma">
-	<meta name="apple-mobile-web-app-capable" content="yes"/>
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-	<meta name="viewport"
-	      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-	<link rel="stylesheet" href="./lib/css/reveal.css">
-	<link rel="stylesheet" href="./lib/css/theme/league.css" id="theme">
-	<!-- Code syntax highlighting -->
-	<link rel="stylesheet" href="./lib/lib/css/androidstudio.css">
-	<!-- Printing and PDF exports -->
-	<script>
-		var link  = document.createElement('link');
-		link.rel  = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? './lib/css/print/pdf.css' : './lib/css/print/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
+  <meta charset="utf-8">
+  <title>UI Bootcamp</title>
+  <meta name="description" content="Code & Learn: React & Redux Workshop, ThoughtWorks">
+  <meta name="author" content="Abhinav Sharma">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="./lib/css/reveal.css">
+  <link rel="stylesheet" href="./lib/css/theme/league.css" id="theme">
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="./lib/lib/css/androidstudio.css">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? './lib/css/print/pdf.css' : './lib/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
 </head>
 <body>
 <div class="reveal">
-	<div class="slides">
-		<section data-transition="fade">
-			<h2>Agenda of session</h2>
-			<ul>
-				<li>History of JS Frameworks</li>
-				<li>React as a view layer</li>
-				<li>JSX</li>
-				<li>Mounting component to DOM</li>
-				<li>Simple Components</li>
-				<li>Props</li>
-				<li>Passing the Props</li>
-			</ul>
-		</section>
-		<section>
-			<section>
-				<h2>Evolution of Templating/View Frameworks</h2>
+  <div class="slides">
+    <section data-transition="fade">
+      <h2>Agenda</h2>
+      <ul>
+        <li>A bit of History</li>
+        <li>React as a view layer</li>
+        <li>JSX</li>
+        <li>Mounting component to DOM</li>
+        <li>Simple Components</li>
+        <li>Props</li>
+        <li>Passing the Props</li>
+      </ul>
+    </section>
+    <section>
+      <section>
+        <h2>A bit of History</h2>
+        <h4>Evolution of Templating/View Frameworks</h4>
 
-			</section>
-			<section>
-				<h2>Vanilla JS</h2>
-				<p>In the beginning, there was just JavaScript and almost everyone was afraid to use it because of the
-					inconsistent DOM APIs across different browsers which resulted in lots of bugs.</p>
-				<pre class="fragment fade-in"><code>
-var name = 'Kim Jong-Un';
-document.getElementByTagName('body')[0].innerHTML = '<p>Hi! ' + name + '</p>';
-//Hi! Kim Jong-Un
-				</code></pre>
-			</section>
-			<section>
-				<h2>Jquery</h2>
-				<p>DOM manipulation and AJAX calls became less risky by abstracting away the differences into one consistent
-					API</p>
-				<pre class="fragment fade-in"><code>
-var name = 'Kim Jong-Un';
-$('body').html('<p>Hi! ' + name + '</p>');
-//Hi! Kim Jong-Un
-				</code></pre>
-			</section>
-			<section>
-				<h2>Handlebars/Moustache Templating</h2>
-				<p>Poor man's templating engine</p>
-				<pre class="fragment fade-in"><code><script id="entry-template" type="text/x-handlebars-template">
-   <div class="entry">
-     <h1>{{title}}</h1>
-     <div class="body">
-       {{{body}}}
-      </div>
-   </div>
-</script></code></pre>
-				<pre class="fragment fade-in"><code>var source   = $("#entry-template").html();
-var template = Handlebars.compile(source);</code></pre>
-				<pre class="fragment fade-in"><code>var context = {title: "My New Post", body: "This is my first post!"};
-var html    = template(context);
-</code></pre>
-			</section>
-			<section>
-				<p>And then came...</p>
-				<br>
-				<br>
-				<div class="fragment fade-in">
-				<h2>Angular JS</h2>
-				<p>AngularJS emerged with all the needed framework pieces in one box: data binding, routing, templating,
-					persistence as well as a compelling testing story and a more declarative syntax.</p>
-				</div>
-			</section>
-			<section>
-				<h2>Angular JS</h2>
-				<pre><code><div ng-app="">
+      </section>
+      <section>
+        <h2>Vanilla JS</h2>
+        <p>In the beginning, there was just JavaScript and almost everyone was afraid to use it because of the
+          inconsistent DOM APIs across different browsers which resulted in lots of bugs.</p>
+        <pre class="fragment fade-in"><code>
+  var name = 'Kim Jong-Un';
+  document.getElementByTagName('body')[0].innerHTML = '<p>Hi! ' + name + '</p>';
+  //Hi! Kim Jong-Un
+          </code></pre>
+      </section>
+      <section>
+        <h2>Jquery</h2>
+        <p>DOM manipulation and AJAX calls became less risky by abstracting away the differences into one consistent
+          API</p>
+        <pre class="fragment fade-in"><code>
+  var name = 'Kim Jong-Un';
+  $('body').html('<p>Hi! ' + name + '</p>');
+  //Hi! Kim Jong-Un
+          </code></pre>
+      </section>
+      <section>
+        <h2>Handlebars/Moustache Templating</h2>
+        <p>Poor man's templating engine</p>
+        <pre class="fragment fade-in"><code><script id="entry-template" type="text/x-handlebars-template">
+     <div class="entry">
+       <h1>{{title}}</h1>
+       <div class="body">
+         {{{body}}}
+        </div>
+     </div>
+  </script></code></pre>
+        <pre class="fragment fade-in"><code>var source   = $("#entry-template").html();
+  var template = Handlebars.compile(source);</code></pre>
+        <pre class="fragment fade-in"><code>var context = {title: "My New Post", body: "This is my first post!"};
+  var html    = template(context);
+  </code></pre>
+      </section>
+      <section>
+        <p>And then came...</p>
+        <br>
+        <div class="fragment fade-in">
+          <h2>Angular JS</h2>
+          <p>AngularJS emerged with all the needed framework pieces in one box: data binding, routing, templating,
+            persistence as well as a compelling testing story and a more declarative syntax.</p>
+        </div>
+      </section>
+      <section>
+        <h2>Angular JS</h2>
+        <pre><code><div ng-app="">
 
-<p>Input something in the input box:</p>
-<p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
-<h1>Hello {{name}}</h1>
+  <p>Input something in the input box:</p>
+  <p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
+  <h1>Hello {{name}}</h1>
 
-</div></code></pre>
-			</section>
-			<section>
-				<p>But we did not stop here!</p>
-				<ul class="fragment fade-in">
-					<li>React JS</li>
-					<li>Vue JS</li>
-					<li>Polymer JS</li>
-				</ul>
-			</section>
-		</section>
-		<section>
-			<section>
-				<h2>React</h2>
-				<h4>Simply the view layer</h4>
-			</section>
-			<section>
-				<h2>React</h2>
-				<h4>according to Facebook</h4>
-				<p>A JAVASCRIPT LIBRARY FOR BUILDING USER INTERFACES</p>
-				<ul>
-					<li>It's simple</li>
-					<li>It's declarative</li>
-					<li>It's composable</li>
-				</ul>
-			</section>
-			<section>
-				<h2>Components are your building blocks</h2>
-				<ul>
-					<li>Self contained</li>
-					<li>Modular</li>
-					<li>Dynamic</li>
-				</ul>
-			</section>
-			<section>
-				<h2>How can we break this down into components?</h2>
-				<img src="https://cdn.rawgit.com/westeezy/ReactJS-Bootcamp/master/walkthroughs/slides/day1/img/reddit.png"/>
-			</section>
-		</section>
-		<section>
-			<section>
-				<h2>JSX</h2>
-				<span>XML like syntax</span>
-				<ul>
-					<li class="fragment fade-in">Render markup in your js code</li>
-					<li class="fragment fade-in">This makes sense with small modular components</li>
-					<li class="fragment fade-in">Babel can transpile JSX into plain old javascript</li>
-					<li class="fragment fade-in">You can very easily write your javascript logic alongside your presentation layer</li>
-				</ul>
-			</section>
-		</section>
-		<section>
-			<section>
-				<h2>Lets create a basic component</h2>
-				<div class="fragment fade-in">
-					<pre><code>// Defining a component
+  </div></code></pre>
+      </section>
+      <section>
+        <p>But we did not stop here!</p>
+        <ul class="fragment fade-in">
+          <li>React JS</li>
+          <li>Vue JS</li>
+          <li>Polymer JS</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>React</h2>
+        <h4>Simply the view layer</h4>
+      </section>
+      <section>
+        <h2>React</h2>
+        <h4>according to Facebook</h4>
+        <p>A JAVASCRIPT LIBRARY FOR BUILDING USER INTERFACES</p>
+        <ul>
+          <li>It's simple</li>
+          <li>It's declarative</li>
+          <li>It's composable</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Components are your building blocks</h2>
+        <ul>
+          <li>Self contained</li>
+          <li>Modular</li>
+          <li>Dynamic</li>
+        </ul>
+      </section>
+      <section>
+        <h2>How can we break this down into components?</h2>
+        <img src="https://cdn.rawgit.com/westeezy/ReactJS-Bootcamp/master/walkthroughs/slides/day1/img/reddit.png"/>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>JSX</h2>
+        <span>XML like syntax</span>
+        <ul>
+          <li class="fragment fade-in">Render markup in your js code</li>
+          <li class="fragment fade-in">This makes sense with small modular components</li>
+          <li class="fragment fade-in">Babel can transpile JSX into plain old javascript</li>
+          <li class="fragment fade-in">You can very easily write your javascript logic alongside your presentation
+            layer
+          </li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Lets create a basic component</h2>
+        <div class="fragment fade-in">
+            <pre><code>// Defining a component
 
-class Welcome extends React.Component {
-  render() {
-    return <h1>Hello!</h1>;
+  class Welcome extends React.Component {
+    render() {
+      return <h1>Hello!</h1>;
+    }
   }
-}
-					  </code></pre>
-				</div>
-			</section>
-			<section>
-				<h2>How to use this Component?</h2>
-				<pre><code>import React from 'react'
-import ReactDOM from 'react-dom'
-import Welcome from './components/Welcome';
+              </code></pre>
+        </div>
+      </section>
+      <section>
+        <h2>How to use this Component?</h2>
+        <pre><code>import React from 'react'
+  import ReactDOM from 'react-dom'
+  import Welcome from './components/Welcome';
 
-ReactDOM.render(< Welcome />, document.getElementById('root'));
-</code></pre>
-				<!--<a href="http://codepen.io/krunalp/pen/pNGLWO?editors=1000" target="_blank">Go to codepen</a>-->
-			</section>
-			<section>
-				<h2>How will that look?</h2>
-				<div class="fragment fade-in">
-					<h4>Like this!</h4>
-					<h1>Hello!</h1>
-				</div>
-			</section>
-		</section>
-		<section>
-			<section>
-				<h2>What are PROPS?</h2>
-			</section>
-			<section>
-				<h2>How to supply props?</h2>
-				<div class="fragment fade-in">
-					<pre><code>
-  < Welcome name="Sara" />
+  ReactDOM.render(< Welcome />, document.getElementById('root'));
+  </code></pre>
+        <!--<a href="http://codepen.io/krunalp/pen/pNGLWO?editors=1000" target="_blank">Go to codepen</a>-->
+      </section>
+      <section>
+        <h2>How will that look?</h2>
+        <div class="fragment fade-in">
+          <h4>Like this!</h4>
+          <h1>Hello!</h1>
+        </div>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>What are PROPS?</h2>
+      </section>
+      <section>
+        <h2>How to supply props?</h2>
+        <div class="fragment fade-in">
+            <pre><code>
+    < Welcome name="Sara" />
+                          </code></pre>
+        </div>
+        <div class="fragment fade-in">
+          <h4>access props</h4>
+          <pre><code>
+  class Welcome extends React.Component {
+    render() {
+      return <h1>Hello, {this.props.name}!</h1>;
+    }
+  }
                         </code></pre>
-				</div>
-				<div class="fragment fade-in">
-					<h4>access props</h4>
-					<pre><code>
-class Welcome extends React.Component {
-  render() {
-    return <h1>Hello, {this.props.name}!</h1>;
-  }
-}
-                      </code></pre>
-				</div>
-			</section>
-			<section>
-				<h2>How will that look?</h2>
-				<div class="fragment fade-in">
-					<h4>Like this!</h4>
-					<h1>Hello, Sara!</h1>
-				</div>
-			</section>
-			<section>
-				<h2>Want to make something a little more complicated?</h2>
-				<div class="fragment fade-in">
-					<h4>Try making it on your own. Here's a <a href="https://codepen.io/ShivamLatawa/pen/XepVzM?editors=0010" target="_blank">CodePen link</a>
-						for your reference</h4>
-				</div>
-				<div class="fragment fade-in">
-					<h4>Let's try extracting components out of this</h4>
-				</div>
-			</section>
-		</section>
-		<section>
-			<section>
-				<h2>Passing Props</h2>
-				<img src="./images/passing_props.jpg" alt="passing props" height="500" width="400"/>
-			</section>
-			<section>
-				<h3>Complex component structure</h2>
-					<img src="./images/passing_props_example_1.png" alt="passing props example" height="500" width="400"/>
-			</section>
-			<section>
-				<h3>Passing Props all the way down</h2>
-					<img src="./images/passing_props_example_2.png" alt="passing props example" height="500" width="400"/>
-			</section>
-			<section>
-				<h3>Not so simple is it?</h2>
-					<img src="./images/passing_props_example_3.png" alt="passing props example" height="500" width="400"/>
-			</section>
+        </div>
+      </section>
+      <section>
+        <h2>How will that look?</h2>
+        <div class="fragment fade-in">
+          <h4>Like this!</h4>
+          <h1>Hello, Sara!</h1>
+        </div>
+      </section>
+      <section>
+        <h2>Want to make something a little more complicated?</h2>
+        <div class="fragment fade-in">
+          <h4>Try making it on your own. Here's a <a href="https://codepen.io/ShivamLatawa/pen/XepVzM?editors=0010"
+                                                     target="_blank">CodePen link</a>
+            for your reference</h4>
+          <p>https://goo.gl/2RkNu3</p>
+          <br/>
+          <h4>Let's try extracting components out of this</h4>
+        </div>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Passing Props</h2>
+        <img src="./images/passing_props.jpg" alt="passing props" height="500" width="400"/>
+      </section>
+      <section>
+        <h3>Complex component structure</h2>
+          <img src="./images/passing_props_example_1.png" alt="passing props example" height="500" width="400"/>
+      </section>
+      <section>
+        <h3>Passing Props all the way down</h2>
+          <img src="./images/passing_props_example_2.png" alt="passing props example" height="500" width="400"/>
+      </section>
+      <section>
+        <h3>Not so simple is it?</h2>
+          <img src="./images/passing_props_example_3.png" alt="passing props example" height="500" width="400"/>
+      </section>
 
-			<section>
-				<img src="./images/Artboard%202.png" alt="passing props example" height="500" width="400"/>
-			</section>
-			<section>
-				<img src="./images/Artboard%201.png" alt="passing props example" height="500" width="400"/>
-				<div>
-					<h5><a href="https://codepen.io/ShivamLatawa/pen/XepVzM?editors=0010" target="_blank">Link to Codepen</a></h5>
-					<span>https://goo.gl/2RkNu3</span>
-				</div>
-			</section>
-		</section>
-	</div>
+      <section>
+        <img src="./images/Artboard%202.png" alt="passing props example" height="500" width="400"/>
+      </section>
+      <section>
+        <img src="./images/Artboard%201.png" alt="passing props example" height="500" width="400"/>
+        <div>
+          <h5><a href="https://codepen.io/ShivamLatawa/pen/XepVzM?editors=0010" target="_blank">Link to Codepen</a></h5>
+          <span>https://goo.gl/2RkNu3</span>
+        </div>
+      </section>
+      <section>
+        <h1>Q & A</h1>
+        <br/><br/>
+        <a href="./index.html#/1">Return to agenda</a>
+      </section>
+    </section>
+  </div>
 </div>
 <script src="./lib/lib/js/head.min.js"></script>
 <script src="./lib/js/reveal.js"></script>
 <script src="./js/app.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
-	Reveal.initialize(revealConfig);
+  Reveal.initialize(revealConfig);
 </script>
 </body>
 </html>
