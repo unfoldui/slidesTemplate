@@ -15,11 +15,11 @@
 	<link rel="stylesheet" href="./lib/lib/css/atom-one-dark.css">
 	<!-- Printing and PDF exports -->
 	<script>
-		var link  = document.createElement('link');
-		link.rel  = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? './lib/css/print/pdf.css' : './lib/css/print/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
+    var link  = document.createElement('link');
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? './lib/css/print/pdf.css' : './lib/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
 	<!--[if lt IE 9]>
 	<script src="./lib/lib/js/html5shiv.js"></script>
@@ -53,7 +53,6 @@
 				<li>Flux</li>
 			</ul>
 		</section>
-
 		<section data-transition="fade">
 			<h4>Backbone JS</h4>
 			<div>
@@ -62,7 +61,6 @@
 				<a href="https://github.com/tastejs/todomvc/tree/gh-pages/examples/backbone" target="_blank">Example</a>
 			</div>
 		</section>
-
 		<section data-transition="fade">
 			<h4>Angular JS</h4>
 			<ul>
@@ -76,7 +74,6 @@
 				<a href="https://github.com/tastejs/todomvc/tree/gh-pages/examples/angularjs" target="_blank">Example</a>
 			</div>
 		</section>
-
 		<section data-transition="fade">
 			<section>
 				<h2>Flux</h2>
@@ -124,7 +121,8 @@
 		<section>
 			<section>
 				<h2>Redux</h2>
-				<img src="./images/redux-logo.png" alt="Redux" width="200px" style="border:0;box-shadow: none;background: white;padding: 15px;border-radius: 10px;"/>
+				<img src="./images/redux-logo.png" alt="Redux" width="200px"
+				     style="border:0;box-shadow: none;background: white;padding: 15px;border-radius: 10px;"/>
 				<p><em>Redux is a predictable state container for JavaScript apps.</em></p>
 			</section>
 			<section>
@@ -133,21 +131,13 @@
 			<section>
 				<h2>Advantages</h2>
 				<ul>
-					<li>"A predictable state container"</li>
-					<li>Single source of truth</li>
-					<li>Portable code</li>
-					<li>Separate presentation layer from logic and data</li>
-					<li>You can specify the behavior of your app before even starting to write the UI.</li>
+					<li>Single source of truth
+					</li>
+					<li>State is read-only
+					</li>
+					<li>Changes are made with pure functions called REDUCERS
+					</li>
 				</ul>
-			</section>
-			<section>
-				<h2>Basic principle</h2>
-				<p>
-				<pre><code>
-    (previousState, action) => newState
-
-</code></pre>
-				</p>
 			</section>
 			<section>
 				<h2>Redux way of working</h2>
@@ -155,19 +145,171 @@
 					<img src="./images/redux-life.png" alt="Redux">
 				</p>
 			</section>
+			<section data-transition="none">
+				<h2>Let's design a TODO Application</h2>
+				<span class="fragment" data-transition="none">In Angular JS</span>
+			</section>
+			<section data-transition="none">
+				<h2>Let's design a TODO Application</h2>
+				<span class="fragment" data-transition="none">In <strike> Angular JS </strike>&nbsp; Redux  :)</span>
+			</section>
+			<section>
+				<h2>First, let's design application state.</h2>
+				<p>In Redux, all the application state is stored as a single object.</p>
+				<pre><code>
+{
+  todos: [
+    {
+      text     : 'Consider using Redux',
+      id       : 1,
+      completed: false
+    },
+    {
+      text     : 'Keep all state in a single tree',
+      id       : 2,
+      completed: false
+    }
+  ]
+}
+  </code></pre>
+			</section>
+			<section>
+				<h2>Now, let's define some actions.</h2>
+				<p>Actions are payloads of information that send data from your application to your store.</p>
+				<pre><code>
+const ADD_TODO              = 'ADD_TODO'
+const TOGGLE_TODO           = 'TOGGLE_TODO'
+
+function addTodo(text) {
+  return {type: ADD_TODO, text}
+}
+
+function toggleTodo(index) {
+  return {type: TOGGLE_TODO, id}
+}
+  </code></pre>
+			</section>
+			<section>
+				<h2>Define reducers</h2>
+				<p>Reducers specify how the application's state changes in response to actions sent to the store</p>
+				<p>Basic Principle</p>
+				<pre><code>
+(previousState, action) => newState
+  </code></pre>
+			</section>
+			<section>
+				<h2>Writing a reducer</h2>
+				<pre><code>
+function todoApp(state = [], action) {
+  switch (action.type) {
+
+    case ADD_TODO:
+      return [
+        ...state,
+        {
+          text     : action.text,
+          id       : Math.random(),
+          completed: false
+        }
+      ]
+
+    case TOGGLE_TODO:
+      return state.map((todo) => {
+        if (todo.id !== action.payload.id)
+          return todo
+
+        return {...todo, completed: !todo.completed}
+      })
+
+    default:
+      return state
+  }
+}
+  </code></pre>
+			</section>
+			<section>
+				<h2>Dispatching Actions</h2>
+				<pre><code>
+import {addTodo} from "../actions";
+
+// Dispatch add todo action
+store.dispatch(addTodo("Create a Redux App"))
+  </code></pre>
+
+				<pre><code>
+// Updated redux state
+{
+  todos: [
+    {
+      text     : "Create a Redux App",
+      id       : 1,
+      completed: false
+    }
+  ]
+}
+  </code></pre>
+			</section>
+
+			<section>
+				<h2>Dispatching Actions</h2>
+				<pre><code>
+import {toggleTodo} from "../actions";
+
+// Dispatch add todo action
+store.dispatch(toggleTodo(1))
+  </code></pre>
+
+				<pre><code>
+// Updated redux state
+{
+  todos: [
+    {
+      text     : "Create a Redux App",
+      id       : 1,
+      completed: true
+    }
+  ]
+}
+  </code></pre>
+			</section>
+			<section>
+				<h1>That's all</h1>
+			</section>
+
+			<section>
+				<h2>Connecting Redux with React</h2>
+				<img src="./images/react-redux.png" alt="flux" width="700"/>
+			</section>
+
+			<section>
+				<h2>Todo component</h2>
+				<img src="./images/todo.png"/>
+			</section>
+
+			<section>
+				<h2>TodoList component</h2>
+				<img src="./images/todo-list.png"/>
+			</section>
+
+			<section>
+				<h2>Todo Container</h2>
+				<img src="./images/todo-container.png"/>
+			</section>
+
 		</section>
 		<section>
 			<h1>Q & A</h1>
 			<br/><br/>
 			<a href="./index.html#/2">Return to agenda</a>
 		</section>
+
 	</div>
 </div>
 <script src="./lib/lib/js/head.min.js"></script>
 <script src="./lib/js/reveal.js"></script>
 <script src="./js/app.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
-	Reveal.initialize(revealConfig);
+  Reveal.initialize(revealConfig);
 </script>
 </body>
 </html>
