@@ -1,98 +1,105 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>React & Redux Workshop: Fetch API & Promises </title>
-    <meta name="description" content="Code & Learn: React & Redux Workshop, ThoughtWorks">
-    <meta name="author" content="Rohit Yadav">
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="./lib/css/reveal.css">
-    <link rel="stylesheet" href="./lib/css/theme/league.css" id="theme">
-    <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="./lib/lib/css/androidstudio.css">
-    <!-- Printing and PDF exports -->
-    <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? './lib/css/print/pdf.css' : './lib/css/print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
-    </script>
+	<meta charset="utf-8">
+	<title>React & Redux Workshop: Fetch API & Promises </title>
+	<meta name="description" content="Code & Learn: React & Redux Workshop, ThoughtWorks">
+	<meta name="author" content="Rohit Yadav">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+	<meta name="viewport"
+	      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<link rel="stylesheet" href="./lib/css/reveal.css">
+	<link rel="stylesheet" href="./lib/css/theme/league.css" id="theme">
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="./lib/lib/css/androidstudio.css">
+	<!-- Printing and PDF exports -->
+	<script>
+    var link  = document.createElement('link');
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? './lib/css/print/pdf.css' : './lib/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
 </head>
 <body>
 <div class="reveal">
-    <div class="slides">
-        <section data-transition="fade">
-            <h2>Agenda</h2>
-            <ul>
-                <li>Event loop</li>
-                <li>Callback hell</li>
-                <li>Promises</li>
-                <li>Promises vs callbacks</li>
-                <li>Webcam stream example</li>
-                <li>Fetch API</li>
-            </ul>
-        </section>
-        <section>
-            <section>
-                <h2>Promises</h2>
-                <h4>are future result of an asynchronous operations such as timeouts, callbacks etc.</h4>
-                <h4>return an object to which callback could be attached, instead of callbacks being passed into a
-                    function</h4>
-                <h4>do NOT make synchronous </h4>
-                <pre class="fragment fade-in">
-                    <code>
-                      const promise = new Promise();
-                      // creating a promise
-                    </code>
-                </pre>
-            </section>
-            <section>
-                <h2>Fetch API</h2>
-                <h4>An interface for fetching resources mostly across the network</h4>
-                <h4>Returns a promise unlike XMLhttpRequest</h4>
-                <h4>Can be used to fetch JSON, blobs, text, formData etc.</h4>
-            </section>
-            <section>
-                <pre>
-- API similar to XMLhttpRequest
-- can be used to fetch any type of data not just JSON
-- returns a promise
-- body is raw data (Readable stream), use .json(), which in turn returns a promise to parse JSON data
-- chain another then (as the stream is read asynchronously)
-- use .catch(err => err) when data isn't returned successfully
-- response types CORS, opaque
-- body response type: arrayBuffer, blob, json, text, formData
-                </pre>
-            </section>
-            <section>
-                <pre>
-- future result of an async operation
-- used to manage async operations already present in the environment such as timeouts, callbacks, mouse
-events, ajax completions, callback etc.
-- they don't make sync operations async, threads would be needed to do that
-- can be thought of as a monitoring tool for async operations
-- aren't async themselves expect for the .then() which can be implemented by built in APIs such as
-setTimeout() or setImmediate() or nextTick() (under the hood use of event queues, out of scope, video
-reference philip roberts)
-- use new Promise() to create a new promise
-- constructor takes one fn as arg, the fn passes resolve and reject
-- can be used to deal with results later for instance processing in background
-- Promise.all()/race();
-- callback hell
-                </pre>
-            </section>
-        </section>
-    </div>
+	<div class="slides">
+		<section>
+			<h1>Fetch API</h1>
+		</section>
+
+		<section>
+			<h2>Fetch API</h2>
+			<ul>
+				<li>Simpler and cleaner API than <b>XMLHttpRequest</b></li>
+				<li>Uses ES6 Promises instead of callbacks</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Using Fetch API</h2>
+			<p>GET Request</p>
+			<pre><code>
+fetch('http://example.com/movies.json')
+  .then(res => res.json())
+  .catch(console.error)
+
+</code></pre>
+		</section>
+
+		<section>
+			<h2>Using Fetch API</h2>
+			<p>POST Request</p>
+			<pre><code>
+fetch(url, {
+  method : "POST",
+  body   : JSON.stringify(data),
+  headers: new Headers({
+    "Content-Type": "application/json"
+  })
+})
+.then(res => res.json())
+.catch(console.error)
+
+</code></pre>
+		</section>
+		<section>
+			<h1>ES6 Promises</h1>
+		</section>
+		<section>
+			<h2>ES6 Promises</h2>
+			<p>Implementation</p>
+			<pre><code>
+export const myFirstPromise = new Promise((resolve, reject) => {
+  if (condition === true)
+    resolve(someValue)
+  else {
+    reject("failure reason")
+  }
+});
+</code></pre>
+			<p>Usage</p>
+<pre><code>
+import {myFirstPromise} from '../API'
+
+myFirstPromise()
+.then(res => console.log(res))
+.catch(error => console.log(error))
+</code></pre>
+		</section>
+		<section>
+			<h1>Q & A</h1>
+			<br/><br/>
+			<a href="./index.html#/2">Return to agenda</a>
+		</section>
+	</div>
 </div>
 <script src="./lib/lib/js/head.min.js"></script>
 <script src="./lib/js/reveal.js"></script>
 <script src="./js/app.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
-    Reveal.initialize(revealConfig);
+  Reveal.initialize(revealConfig);
 </script>
 </body>
 </html>
