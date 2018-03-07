@@ -15,164 +15,165 @@
 	<link rel="stylesheet" href="./lib/lib/css/atom-one-dark.css">
 	<!-- Printing and PDF exports -->
 	<script>
-		var link  = document.createElement('link');
-		link.rel  = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? './lib/css/print/pdf.css' : './lib/css/print/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
+    var link  = document.createElement('link');
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? './lib/css/print/pdf.css' : './lib/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
 </head>
 <body>
 <div class="reveal">
 	<div class="slides">
 		<section>
-			<section>
-				<h2>Managing Application States</h2>
-			</section>
+			<h2>React Lifecycle and State</h2>
 		</section>
 		<section>
-			<h2>Agenda</h2>
+			<h2>The Component Lifecycle</h2>
+			<p class="fragment fade-in"> Methods prefixed with “<strong><u>will</u></strong>” are called right
+				<strong>before</strong>
+				something happens</p>
+			<p class="fragment fade-in"> Methods prefixed with “<strong><u>did</u></strong>” are called right
+				<strong>after</strong> something happens.</p>
+		</section>
+		<section>
+			<h2>Three lifecycle phases of a component</h2>
 			<ul>
-				<li class="fragment fade-in">Default Props</li>
-				<li class="fragment fade-in">PropTypes</li>
-				<li class="fragment fade-in">React Lifecycle Methods</li>
-				<li class="fragment fade-in">States</li>
+				<li>Mount</li>
+				<li>Update</li>
+				<li>Unmount</li>
 			</ul>
 		</section>
-
-
 		<section>
-			<h2>Default Props</h2>
-			<pre><code>class CustomButton extends React.Component {
-
-};
-
-CustomButton.defaultProps = {
-  color: 'blue'
-};
-                    </code></pre>
-			<h5><a href="http://codepen.io/krunalp/pen/pNGLWO?editors=1011" target="_blank">Code Pen</a></h5>
-			<span>https://goo.gl/yt3whn</span>
+			<h2>Mount</h2>
+			<p>These methods are called when an instance of a component is being created and inserted into the DOM:</p>
+			<ul>
+				<li>constructor()</li>
+				<li>componentWillMount()</li>
+				<li>render()</li>
+				<li>componentDidMount()</li>
+			</ul>
+			<br>
+			<br>
 		</section>
 		<section>
-			<h2>Proptypes</h2>
-			<pre><code>class CustomButton extends React.Component {
-
-};
-
-CustomButton.propTypes = {
-  color: React.PropTypes.string
-};
-                    </code></pre>
-			<a href="https://facebook.github.io/react/docs/react-api.html#react.proptypes" target="_blank">Docs</a>
+			<h2>Using mount methods</h2>
+			<img src="./images/lifecycle-1-code.png"/>
 		</section>
 		<section>
-			<section>
-				<h2>The Component Lifecycle</h2>
-				<p class="fragment fade-in"> Methods prefixed with “<strong><u>will</u></strong>” are called right
-					<strong>before</strong>
-					something happens</p>
-				<p class="fragment fade-in"> Methods prefixed with “<strong><u>did</u></strong>” are called right
-					<strong>after</strong> something happens.</p>
-			</section>
-			<section>
-				<h2>Mounting</h2>
-				<p>These methods are called when an instance of a component is being created and inserted into the DOM:</p>
-				<ul>
-					<li>constructor()</li>
-					<li>componentWillMount()</li>
-					<li>render()</li>
-					<li>componentDidMount()</li>
-				</ul>
-				<br>
-				<br>
-				<h5>
-					<a href="https://codepen.io/kunalkindra/pen/yzVvzj?editors=1010" target="_blank">Code Pen Link</a>
-				</h5>
-				<span>https://goo.gl/d8mN8J</span>
-			</section>
-			<section>
-				<h2>Updating</h2>
-				<p>An update can be caused by changes to props or state. These methods are called when a component is
-					being re-rendered:</p>
-				<ul>
-					<li>componentWillReceiveProps()</li>
-					<li style="color:red;">shouldComponentUpdate()</li>
-					<li>componentWillUpdate()</li>
-					<li>render()</li>
-					<li>componentDidUpdate()</li>
-				</ul>
-				<br>
-				<br>
-			</section>
-			<section>
-				<h2>Unmounting</h2>
-				<p>This method is called when a component is being removed from the DOM:</p>
-				<ul>
-					<li>componentWillUnmount()</li>
-				</ul>
-			</section>
+			<h2>Output</h2>
+			<img src="./images/lifecycle-1-console.png"/>
+		</section>
+
+		<section>
+			<h2>Update</h2>
+			<p>An update can be caused by changes to props or state. These methods are called when a component is
+				being re-rendered:</p>
+			<ul>
+				<li>componentWillReceiveProps()</li>
+				<li style="color:red;">shouldComponentUpdate()</li>
+				<li>componentWillUpdate()</li>
+				<li>render()</li>
+				<li>componentDidUpdate()</li>
+			</ul>
+			<br>
+			<br>
 		</section>
 		<section>
-			<section data-transition="fade">
-				<div>
-					<h3>Hi! I am a component. How do I update myself?</h3>
-				</div>
-				<div class="fragment fade-in">
-					<h4>I have been told that I cannot update my 'props'. They belong to my parent.</h4>
-					<img src="./images/states_pic.jpg" alt="passing props" height="300"/>
-					<h4>If I can't update my props, how the <b>#$^%@!</b> do I update myself?</h4>
-				</div>
-			</section>
-			<section data-transition="fade">
-				<h2>ENTER<span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span><span
-					class="fragment">.</span><span class="fragment">.</span><span class="fragment fade-in"> STATES!</span></h2>
-				<div class="fragment fade-in">
-					<h3>how do I use states?</h3>
-					<pre><code>
-    <p>The current temperature is: {this.state.temperature}</p>
-                      </code></pre>
-				</div>
-			</section>
-			<section>
-				<h3>how do I change the state?</h3>
-				<div class="fragment fade-in">
-<pre><code>
-this.state.temperature = 30;
-  </code></pre>
-				</div>
-				<div class="fragment fade-in">
-					<pre><code>//THIS IS WRONG</code></pre>
-					<img src="./images/state_punishment.gif" alt="state punishment" height="200" width="400"/>
-				</div>
-				<div class="fragment fade-in">
+			<h2>Unmounting</h2>
+			<p>This method is called when a component is being removed from the DOM:</p>
+			<ul>
+				<li>componentWillUnmount()</li>
+			</ul>
+		</section>
+		<section>
+			<h2>States in React</h2>
+			<ul>
+				<li class="fragment fade-in">Like props, state holds information about the component</li>
+				<li class="fragment fade-in">It is private and fully controlled by the component.</li>
+			</ul>
+		</section>
+		<section>
+			<h2>By default, a component has no state.</h2>
+			<p>State is created in the constructor of the component</p>
+			<pre><code>
+constructor() {
+  super();
+  this.state = {
+    temperature: 30
+  };
+}
+</code></pre>
+			<p>This is where state gets it’s initial data.</p>
+		</section>
+		<section>
+			<h3>The initial data can also come from props</h3>
+			<pre><code>
+constructor(props) {
+  super(props)
+  this.state = {
+    temperature: this.props.temperature
+  };
+}
+</code></pre>
+		</section>
+		<section data-transition="fade">
+			<div>
+				<h3>how do I use states?</h3>
 				<pre><code>
-this.setState({temperature: 30});
-  </code></pre>
-					<pre><code>//YAY! you got it now.</code></pre>
-				</div>
-			</section>
-			<section>
-				<h2>Let create a counter in 600 secs(10 mins)</h2>
-				<a href="http://codepen.io/krunalp/pen/woOmre?editors=0010" target="_blank">Counter Code Pen</a>
-				<div class="fragment">
-					<h1 id="countDownTimer"></h1>
-					<script type="text/javascript">
-            var minSecs = 0, currSecs = 600, timer;
-            var timerView = document.getElementById('countDownTimer');
-            timer = setInterval(function () {
-              if ( currSecs === minSecs ) {
-                clearInterval(timer);
-                timerView.innerHTML = 'Time\'s up!';
-              } else {
-                timerView.innerHTML = currSecs;
-                currSecs--;
-              }
-            }, 1000);
-					</script>
-				</div>
-			</section>
+  <p>The current temperature is: {this.state.temperature}</p>
+                    </code></pre>
+			</div>
 		</section>
+		<section>
+			<h3>how do I change the state?</h3>
+			<div class="fragment fade-in">
+				<pre><code>this.state.temperature = 30;</code></pre>
+			</div>
+			<div class="fragment fade-in">
+				<img src="./images/state_punishment.gif" alt="state punishment" height="200" width="400"/>
+			</div>
+			<div class="fragment fade-in">
+			<pre><code>this.setState({temperature: 30});
+</code></pre>
+				<p>OR</p>
+				<pre><code>this.setState((prevState, props) => {
+  return { temprature: prevState.temprature + 10 }
+});</code></pre>
+			</div>
+		</section>
+		<section>
+			<h2>Let's create a counter in react</h2>
+		</section>
+		<section>
+			<p>Initialize state</p>
+			<img class="fragment fade-in" src="images/counter-1.png"/>
+		</section>
+		<section>
+			<p>Update count state</p>
+			<img class="fragment fade-in" src="images/counter-2.png"/>
+		</section>
+		<section>
+			<p>Keep updating count every second</p>
+			<img class="fragment fade-in" src="images/counter-3.png"/>
+		</section>
+		<section>
+			<p>Is counter component is ready ?</p>
+		</section>
+		<section>
+			<p>Clear garbage</p>
+			<img height="550" src="images/counter-4.png"/>
+		</section>
+
+		<section>
+			<h1>Exercise time!</h1>
+		</section>
+
+		<section>
+			<p>Mark as Favourite</p>
+			<img src="images/mark-as-favourite.gif"/>
+		</section>
+
 		<section>
 			<h1>Q & A</h1>
 			<br/><br/>
@@ -184,7 +185,7 @@ this.setState({temperature: 30});
 <script src="./lib/js/reveal.js"></script>
 <script src="./js/app.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
-	Reveal.initialize(revealConfig);
+  Reveal.initialize(revealConfig);
 </script>
 </body>
 </html>

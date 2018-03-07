@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>React & Redux Workshop: Fetch API & Promises </title>
-	<meta name="description" content="Code & Learn: React & Redux Workshop, ThoughtWorks">
-	<meta name="author" content="Rohit Yadav">
+	<title>UI Bootcamp</title>
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Westin">
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 	<meta name="viewport"
@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="./lib/css/reveal.css">
 	<link rel="stylesheet" href="./lib/css/theme/league.css" id="theme">
 	<!-- Code syntax highlighting -->
-	<link rel="stylesheet" href="./lib/lib/css/androidstudio.css">
+	<link rel="stylesheet" href="./lib/lib/css/atom-one-dark.css">
 	<!-- Printing and PDF exports -->
 	<script>
     var link  = document.createElement('link');
@@ -21,72 +21,58 @@
     link.href = window.location.search.match(/print-pdf/gi) ? './lib/css/print/pdf.css' : './lib/css/print/paper.css';
     document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
+	<!--[if lt IE 9]>
+	<script src="./lib/lib/js/html5shiv.js"></script>
+	<![endif]-->
 </head>
 <body>
 <div class="reveal">
+	<!-- Any section element inside of this container is displayed as a slide -->
 	<div class="slides">
 		<section>
-			<h1>Fetch API</h1>
+			<h2>Testing React Components</h2>
 		</section>
-
 		<section>
-			<h2>Fetch API</h2>
+			<h2>Testing frameworks</h2>
 			<ul>
-				<li>Simpler and cleaner API than <b>XMLHttpRequest</b></li>
-				<li>Uses ES6 Promises instead of callbacks</li>
+				<li>Jest</li>
+				<li>Mocha</li>
+				<li>Jasmine</li>
 			</ul>
 		</section>
-
 		<section>
-			<h2>Using Fetch API</h2>
-			<p>GET Request</p>
-			<pre><code>
-fetch('http://example.com/movies.json')
-  .then(res => res.json())
-  .catch(console.error)
+			<h2>Say hello to Enzyme JS</h2>
+			<p>Developed by <a>Airbnb</a></p>
+			<ul>
+				<li>Simple and powerful API</li>
+				<li>Uses jQuery like syntax to traverse nodes</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Usage</h2>
+			<img src="images/testing-react-1.png"/>
+		</section>
+		<section>
+			<h2>Rendering options</h2>
+			<ul>
+				<li>Shallow rendering</li>
+				<li>Full rendering</li>
+				<li>Static rendering</li>
+			</ul>
 
-</code></pre>
+			<img src="images/testing-react-2.png"/>
 		</section>
 
 		<section>
-			<h2>Using Fetch API</h2>
-			<p>POST Request</p>
-			<pre><code>
-fetch(url, {
-  method : "POST",
-  body   : JSON.stringify(data),
-  headers: new Headers({
-    "Content-Type": "application/json"
-  })
-})
-.then(res => res.json())
-.catch(console.error)
+			<h2>Testing click events</h2>
+			<p>Component with button</p>
 
-</code></pre>
+			<img src="images/testing-react-3.png"/>
 		</section>
-		<section>
-			<h1>ES6 Promises</h1>
-		</section>
-		<section>
-			<h2>ES6 Promises</h2>
-			<p>Implementation</p>
-			<pre><code>
-export const myFirstPromise = new Promise((resolve, reject) => {
-  if (condition === true)
-    resolve(someValue)
-  else {
-    reject("failure reason")
-  }
-});
-</code></pre>
-			<p>Usage</p>
-<pre><code>
-import {myFirstPromise} from '../API'
 
-myFirstPromise()
-.then(res => console.log(res))
-.catch(error => console.log(error))
-</code></pre>
+		<section>
+			<h2>Testing click events</h2>
+			<img src="images/testing-react-4.png"/>
 		</section>
 		<section>
 			<h1>Q & A</h1>
