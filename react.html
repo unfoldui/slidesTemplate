@@ -29,31 +29,20 @@
 			<h2>Introduction to React JS</h2>
 			<img src="./images/react-logo.png"/>
 		</section>
-		<section data-transition="fade">
-			<h2>Agenda</h2>
-			<ul>
-				<li>A bit of History</li>
-				<li>React as a view layer</li>
-				<li>JSX</li>
-				<li>Mounting component to DOM</li>
-				<li>Simple Components</li>
-				<li>Props</li>
-				<li>Passing the Props</li>
-			</ul>
-		</section>
 		<section>
-			<h2>A bit of History</h2>
-			<h4>Evolution of Templating/View Frameworks</h4>
-
+			<h1>A bit of History</h1>
+			<h3>Evolution of Templates/View Frameworks</h3>
 		</section>
 		<section>
 			<h2>Vanilla JS</h2>
 			<p>In the beginning, there was just JavaScript and almost everyone was afraid to use it because of the
 				inconsistent DOM APIs across different browsers which resulted in lots of bugs.</p>
 			<pre class="fragment fade-in"><code>
-var name = 'Kim Jong-Un';
-document.getElementByTagName('body')[0].innerHTML = '<p>Hi! ' + name + '</p>';
-//Hi! Kim Jong-Un
+  var name = 'KP';
+
+  document.getElementByTagName('body')[0].innerHTML = '<p>Hi! ' + name + '</p>';
+
+  //Hi! KP
         </code></pre>
 		</section>
 		<section>
@@ -61,9 +50,11 @@ document.getElementByTagName('body')[0].innerHTML = '<p>Hi! ' + name + '</p>';
 			<p>DOM manipulation and AJAX calls became less risky by abstracting away the differences into one consistent
 				API</p>
 			<pre class="fragment fade-in"><code>
-var name = 'Kim Jong-Un';
-$('body').html('<p>Hi! ' + name + '</p>');
-//Hi! Kim Jong-Un
+  var name = 'KP';
+
+  $('body').html('<p>Hi! ' + name + '</p>');
+
+  //Hi! KP
         </code></pre>
 		</section>
 		<section>
@@ -73,7 +64,7 @@ $('body').html('<p>Hi! ' + name + '</p>');
    <div class="entry">
      <h1>{{title}}</h1>
      <div class="body">
-       {{{body}}}
+       {{body}}}
       </div>
    </div>
 </script></code></pre>
@@ -94,43 +85,58 @@ var html    = template(context);
 		</section>
 		<section>
 			<h2>Angular JS</h2>
-			<pre><code><div ng-app="">
+			<pre><code>
+  <div ng-app="">
 
-<p>Input something in the input box:</p>
-<p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
-<h1>Hello {{name}}</h1>
+    <p>Input something in the input box:</p>
+    <lable>Name : </lable>
+    <input type="text" ng-model="name" placeholder="Enter name here"></lable>
+    <h1>Hello {{name}}</h1>
 
-</div></code></pre>
+  </div>
+
+</code></pre>
 		</section>
 		<section>
 			<p>But we did not stop here!</p>
 			<ul class="fragment fade-in">
-				<li>React JS</li>
-				<li>Vue JS</li>
-				<li>Polymer JS</li>
+				<li>Ember</li>
+				<li>Meteor</li>
+				<li>Polymer</li>
+				<li>React</li>
+				<li>Vue</li>
 			</ul>
 		</section>
 		<section>
-			<h2>React</h2>
-			<h4>Simply the view layer</h4>
+			<h1>React JS</h1>
+		</section>
+		<section>
+			<h2>Simply the view layer</h2>
 		</section>
 		<section>
 			<h2>React</h2>
 			<h4>according to Facebook</h4>
-			<p>A JAVASCRIPT LIBRARY FOR BUILDING USER INTERFACES</p>
-			<ul>
-				<li>It's simple</li>
-				<li>It's declarative</li>
-				<li>It's composable</li>
-			</ul>
+			<h3>A JAVASCRIPT LIBRARY FOR BUILDING USER INTERFACES</h3>
+		</section>
+		<section>
+			<h2 class="fragment fade-in">It's simple</h2>
+			<h2 class="fragment fade-in">It's declarative</h2>
+			<h2 class="fragment fade-in">and It's composable</h2>
 		</section>
 		<section>
 			<h2>Components are your building blocks</h2>
+		</section>
+		<section>
+			<h2>Components are</h2>
 			<ul>
-				<li>Self contained</li>
-				<li>Modular</li>
-				<li>Dynamic</li>
+				<li class="fragment fade-in">Self contained</li>
+				<li class="fragment fade-in">Modular</li>
+				<li class="fragment fade-in">Dynamic</li>
 			</ul>
+			<!--<aside>-->
+				<!--Components let you split the UI into independent and reusable pieces-->
+				<!--You can think about each piece in isolation-->
+			<!--</aside>-->
 		</section>
 		<section data-transition="none">
 			<h3>How can we break this down into components?</h3>
@@ -276,7 +282,7 @@ CommentItem.propTypes = {
 			<img src="./images/Artboard%202.png" alt="passing props example" height="600"/>
 		</section>
 		<section data-transition="none">
-			<h3>Comment List</h3>
+			<h3>Comment</h3>
 			<img src="./images/Artboard_3.png" alt="passing props example" height="600"/>
 		</section>
 		<section>
@@ -309,7 +315,6 @@ const comments = [{
 			<h3>Result </h3>
 			<img src="./images/component-result.png" height="250"/>
 		</section>
-
 		<section>
 			<h1>Exercise time!</h1>
 		</section>
@@ -344,8 +349,8 @@ const movies = [{
 		</section>
 		<section>
 			<h2>React Scaffolding</h2>
-			<a href="https://goo.gl/Vg95Wz">https://goo.gl/Vg95Wz</a>
-			<p><strong>https://gitlab.com/tw-frontenders/react-sample-app.git</strong></p>
+			<a href="https://goo.gl/BnC8NQ">https://goo.gl/BnC8NQ</a>
+			<p><strong>https://gitlab.com/tw-code-n-learn-ui/react-scaffolding-app</strong></p>
 		</section>
 		<section>
 			<h1>Q & A</h1>

@@ -26,6 +26,31 @@
 <div class="reveal">
 	<div class="slides">
 		<section>
+			<h1>ES6 Promises</h1>
+		</section>
+		<section>
+			<p>Promises give us a way to handle asynchronous processing in a more synchronous fashion.</p>
+		</section>
+		<section>
+			<h2>ES6 Promises</h2>
+			<p>Implementation</p>
+			<pre><code>export const myFirstPromise = new Promise((resolve, reject) => {
+  if (condition === true)
+    resolve(someValue)
+  else {
+    reject("failure reason")
+  }
+});
+</code></pre>
+			<p>Usage</p>
+			<pre><code>import {myFirstPromise} from '../API'
+
+   myFirstPromise()
+     .then(res => console.log(res))
+     .catch(error => console.log(error))
+</code></pre>
+		</section>
+		<section>
 			<h1>Fetch API</h1>
 		</section>
 
@@ -63,38 +88,6 @@ fetch(url, {
 .catch(console.error)
 
 </code></pre>
-		</section>
-		<section>
-			<h1>ES6 Promises</h1>
-		</section>
-		<section>
-			<h2>ES6 Promises</h2>
-			<p>Implementation</p>
-			<pre><code>
-export const myFirstPromise = new Promise((resolve, reject) => {
-  if (condition === true)
-    resolve(someValue)
-  else {
-    reject("failure reason")
-  }
-});
-</code></pre>
-			<p>Usage</p>
-<pre><code>
-import {myFirstPromise} from '../API'
-
-myFirstPromise()
-.then(res => console.log(res))
-.catch(error => console.log(error))
-</code></pre>
-		</section>
-		<section>
-			<h2>Movies API</h2>
-			<img src="./images/api_doc.png"/>
-		</section>
-		<section>
-			<h2>Movies API - Response</h2>
-			<img src="./images/api_response.png"/>
 		</section>
 		<section>
 			<h1>Q & A</h1>
