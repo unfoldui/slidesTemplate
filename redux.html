@@ -1,162 +1,159 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>UI Bootcamp</title>
-	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-	<meta name="author" content="Westin">
-	<meta name="apple-mobile-web-app-capable" content="yes"/>
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-	<meta name="viewport"
-	      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-	<link rel="stylesheet" href="./lib/css/reveal.css">
-	<link rel="stylesheet" href="./lib/css/theme/league.css" id="theme">
-	<!-- Code syntax highlighting -->
-	<link rel="stylesheet" href="./lib/lib/css/atom-one-dark.css">
-	<!-- Printing and PDF exports -->
-	<script>
-    var link  = document.createElement('link');
-    link.rel  = 'stylesheet';
+  <meta charset="utf-8">
+  <title>UI Bootcamp</title>
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Westin">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="./lib/css/reveal.css">
+  <link rel="stylesheet" href="./lib/css/theme/league.css" id="theme">
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="./lib/lib/css/atom-one-dark.css">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
     link.type = 'text/css';
     link.href = window.location.search.match(/print-pdf/gi) ? './lib/css/print/pdf.css' : './lib/css/print/paper.css';
     document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
-	<!--[if lt IE 9]>
-	<script src="./lib/lib/js/html5shiv.js"></script>
-	<![endif]-->
+  </script>
+  <!--[if lt IE 9]>
+  <script src="./lib/lib/js/html5shiv.js"></script>
+  <![endif]-->
 </head>
 <body>
 <div class="reveal">
-	<!-- Any section element inside of this container is displayed as a slide -->
-	<div class="slides">
-		<section data-transition="fade">
-			<h4>Data/State management in SPA</h4>
-		</section>
-		<section data-transition="fade">
-			<h2>Patterns</h2>
-			<ul>
-				<li>No framework (imperative)</li>
-				<li>Framework based pattern</li>
-			</ul>
-		</section>
-		<section data-transition="fade">
-			<h4>No framework pattern (imperative)</h4>
-			<ul>
-				<li>Do it yourself</li>
-			</ul>
-		</section>
-		<section data-transition="fade">
-			<h4>Framework based pattern</h4>
-			<ul>
-				<li>BackboneJS</li>
-				<li>AngularJS</li>
-				<li>Flux</li>
-			</ul>
-		</section>
-		<section data-transition="fade">
-			<h4>Backbone JS</h4>
-			<div>
-				<p>Using backbone collections</p>
-				<img src="https://addyosmani.com/backbone-fundamentals/img/backbone_mvc.png" width="1000"/>
-				<a href="https://github.com/tastejs/todomvc/tree/gh-pages/examples/backbone" target="_blank">Example</a>
-			</div>
-		</section>
-		<section data-transition="fade">
-			<h4>Angular JS</h4>
-			<ul>
-				<li>Using $rootScope</li>
-				<li>Using angular factory</li>
-			</ul>
-			<div>
-				<img src="http://www.sitesbay.com/angularjs/images/angularjs-features.png" width="700"/>
-			</div>
-			<div>
-				<a href="https://github.com/tastejs/todomvc/tree/gh-pages/examples/angularjs" target="_blank">Example</a>
-			</div>
-		</section>
-		<section data-transition="fade">
-			<section>
-				<h2>Flux</h2>
-				<img src="./images/flux.png" alt="flux" width="700"/>
-			</section>
-			<section>
-				<div>
-					Flux is really just a fancy term for pub/sub architecture,
-					i.e. data always flows one way through the application and
-					it is picked up along the way by various subscribers (stores)
-					who are listening to it.
-				</div>
-			</section>
-			<section>
-				<h2>Why Flux</h2>
-				<ul>
-					<li>State is messy</li>
-					<li>Unidirectional data makes for easy debugging</li>
-				</ul>
-			</section>
-		</section>
-		<section>
-			<h2>View</h2>
-			<ul>
-				<li>Reflects current state of the application on DOM</li>
-				<li>Fires actions on external or user input</li>
-				<li>Listens to store for any change in the application state</li>
-			</ul>
-		</section>
-		<section>
-			<h2>Action</h2>
-			<ul>
-				<li>Consists of a unique identifier which defines that action</li>
-				<li>Action carries payload, if needed</li>
-			</ul>
-		</section>
-		<section>
-			<h2>Store</h2>
-			<ul>
-				<li>Holds state of the application</li>
-				<li>More than just a model</li>
-				<li>Triggers itself when there is any change in the state of the application.</li>
-			</ul>
-		</section>
-		<section>
-			<section>
-				<h2>Redux</h2>
-				<img src="./images/redux-logo.png" alt="Redux" width="200px"
-				     style="border:0;box-shadow: none;background: white;padding: 15px;border-radius: 10px;"/>
-				<p><em>Redux is a predictable state container for JavaScript apps.</em></p>
-			</section>
-			<section>
-				<h2>Why Redux?</h2>
-			</section>
-			<section>
-				<h2>Advantages</h2>
-				<ul>
-					<li>Single source of truth
-					</li>
-					<li>State is read-only
-					</li>
-					<li>Changes are made with pure functions called REDUCERS
-					</li>
-				</ul>
-			</section>
-			<section>
-				<h2>Redux way of working</h2>
-				<p>
-					<img src="./images/redux-life.png" alt="Redux">
-				</p>
-			</section>
-			<section data-transition="none">
-				<h2>Let's design a TODO Application</h2>
-				<span class="fragment" data-transition="none">In Angular JS</span>
-			</section>
-			<section data-transition="none">
-				<h2>Let's design a TODO Application</h2>
-				<span class="fragment" data-transition="none">In <strike> Angular JS </strike>&nbsp; Redux  :)</span>
-			</section>
-			<section>
-				<h2>First, let's design application state.</h2>
-				<p>In Redux, all the application state is stored as a single object.</p>
-				<pre><code>
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
+    <section>
+      <h1>Data/State management in SPA</h1>
+    </section>
+    <section>
+      <h2>Patterns</h2>
+      <ul>
+        <li>No framework (imperative)</li>
+        <li>Framework based pattern</li>
+      </ul>
+    </section>
+    <section>
+      <h4>No framework pattern (imperative)</h4>
+      <ul>
+        <li>Do it yourself</li>
+      </ul>
+    </section>
+    <section>
+      <h4>Framework based pattern</h4>
+      <ul>
+        <li>BackboneJS</li>
+        <li>AngularJS</li>
+        <li>Flux</li>
+      </ul>
+    </section>
+    <section>
+      <h4>Backbone JS</h4>
+      <div>
+        <p>Using backbone collections</p>
+        <img src="https://addyosmani.com/backbone-fundamentals/img/backbone_mvc.png" width="1000"/>
+        <a href="https://github.com/tastejs/todomvc/tree/gh-pages/examples/backbone" target="_blank">Example</a>
+      </div>
+    </section>
+    <section>
+      <h4>Angular JS</h4>
+      <ul>
+        <li>Using $rootScope</li>
+        <li>Using angular factory</li>
+      </ul>
+      <div>
+        <img src="http://www.sitesbay.com/angularjs/images/angularjs-features.png" width="700"/>
+      </div>
+      <div>
+        <a href="https://github.com/tastejs/todomvc/tree/gh-pages/examples/angularjs" target="_blank">Example</a>
+      </div>
+    </section>
+    <section>
+      <h2>Flux</h2>
+      <img src="./images/flux.png" alt="flux" width="700"/>
+    </section>
+    <section>
+      <div>
+        Flux is really just a fancy term for pub/sub architecture,
+        i.e. data always flows one way through the application and
+        it is picked up along the way by various subscribers (stores)
+        who are listening to it.
+      </div>
+    </section>
+    <section>
+      <h2>Why Flux</h2>
+      <ul>
+        <li>State is messy</li>
+        <li>Unidirectional data makes for easy debugging</li>
+      </ul>
+    </section>
+    <section>
+      <h2>View</h2>
+      <ul>
+        <li>Reflects current state of the application on DOM</li>
+        <li>Fires actions on external or user input</li>
+        <li>Listens to store for any change in the application state</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Action</h2>
+      <ul>
+        <li>Consists of a unique identifier which defines that action</li>
+        <li>Action carries payload, if needed</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Store</h2>
+      <ul>
+        <li>Holds state of the application</li>
+        <li>More than just a model</li>
+        <li>Triggers itself when there is any change in the state of the application.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Redux</h2>
+      <img src="./images/redux-logo.png" alt="Redux" width="200px"
+           style="border:0;box-shadow: none;background: white;padding: 15px;border-radius: 10px;"/>
+      <p><em>Redux is a predictable state container for JavaScript apps.</em></p>
+    </section>
+    <section>
+      <h2>Why Redux?</h2>
+    </section>
+    <section>
+      <h2>Advantages</h2>
+      <ul>
+        <li>Single source of truth
+        </li>
+        <li>State is read-only
+        </li>
+        <li>Changes are made with pure functions called REDUCERS
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Redux way of working</h2>
+      <p>
+        <img src="./images/redux-life.png" alt="Redux">
+      </p>
+    </section>
+    <section data-transition="none">
+      <h2>Let's design a TODO Application</h2>
+      <span class="fragment" data-transition="none">In Angular JS</span>
+    </section>
+    <section data-transition="none">
+      <h2>Let's design a TODO Application</h2>
+      <span class="fragment" data-transition="none">In <strike> Angular JS </strike>&nbsp; Redux  :)</span>
+    </section>
+    <section>
+      <h2>First, let's design application state.</h2>
+      <p>In Redux, all the application state is stored as a single object.</p>
+      <pre><code>
 {
   todos: [
     {
@@ -172,11 +169,11 @@
   ]
 }
   </code></pre>
-			</section>
-			<section>
-				<h2>Now, let's define some actions.</h2>
-				<p>Actions are payloads of information that send data from your application to your store.</p>
-				<pre><code>
+    </section>
+    <section>
+      <h2>Now, let's define some actions.</h2>
+      <p>Actions are payloads of information that send data from your application to your store.</p>
+      <pre><code>
 const ADD_TODO              = 'ADD_TODO'
 const TOGGLE_TODO           = 'TOGGLE_TODO'
 
@@ -188,18 +185,18 @@ function toggleTodo(index) {
   return {type: TOGGLE_TODO, id}
 }
   </code></pre>
-			</section>
-			<section>
-				<h2>Define reducers</h2>
-				<p>Reducers specify how the application's state changes in response to actions sent to the store</p>
-				<p>Basic Principle</p>
-				<pre><code>
+    </section>
+    <section>
+      <h2>Define reducers</h2>
+      <p>Reducers specify how the application's state changes in response to actions sent to the store</p>
+      <p>Basic Principle</p>
+      <pre><code>
 (previousState, action) => newState
   </code></pre>
-			</section>
-			<section>
-				<h2>Writing a reducer</h2>
-				<pre><code>
+    </section>
+    <section>
+      <h2>Writing a reducer</h2>
+      <pre><code>
 function todoApp(state = [], action) {
   switch (action.type) {
 
@@ -226,17 +223,17 @@ function todoApp(state = [], action) {
   }
 }
   </code></pre>
-			</section>
-			<section>
-				<h2>Dispatching Actions</h2>
-				<pre><code>
+    </section>
+    <section>
+      <h2>Dispatching Actions</h2>
+      <pre><code>
 import {addTodo} from "../actions";
 
 // Dispatch add todo action
 store.dispatch(addTodo("Create a Redux App"))
   </code></pre>
 
-				<pre><code>
+      <pre><code>
 // Updated redux state
 {
   todos: [
@@ -248,18 +245,17 @@ store.dispatch(addTodo("Create a Redux App"))
   ]
 }
   </code></pre>
-			</section>
-
-			<section>
-				<h2>Dispatching Actions</h2>
-				<pre><code>
+    </section>
+    <section>
+      <h2>Dispatching Actions</h2>
+      <pre><code>
 import {toggleTodo} from "../actions";
 
 // Dispatch add todo action
 store.dispatch(toggleTodo(1))
   </code></pre>
 
-				<pre><code>
+      <pre><code>
 // Updated redux state
 {
   todos: [
@@ -271,39 +267,38 @@ store.dispatch(toggleTodo(1))
   ]
 }
   </code></pre>
-			</section>
-			<section>
-				<h1>That's all</h1>
-			</section>
+    </section>
+    <section>
+      <h1>That's all</h1>
+    </section>
 
-			<section>
-				<h2>Connecting Redux with React</h2>
-				<img src="./images/react-redux.png" alt="flux" width="700"/>
-			</section>
+    <section>
+      <h2>Connecting Redux with React</h2>
+      <img src="./images/react-redux.png" alt="flux" width="700"/>
+    </section>
 
-			<section>
-				<h2>Todo component</h2>
-				<img src="./images/todo.png"/>
-			</section>
+    <section>
+      <h2>Todo component</h2>
+      <img src="./images/todo.png"/>
+    </section>
 
-			<section>
-				<h2>TodoList component</h2>
-				<img src="./images/todo-list.png"/>
-			</section>
+    <section>
+      <h2>TodoList component</h2>
+      <img src="./images/todo-list.png"/>
+    </section>
 
-			<section>
-				<h2>Todo Container</h2>
-				<img src="./images/todo-container.png"/>
-			</section>
+    <section>
+      <h2>Todo Container</h2>
+      <img src="./images/todo-container.png"/>
+    </section>
 
-		</section>
-		<section>
-			<h1>Q & A</h1>
-			<br/><br/>
-			<a href="./index.html#/2">Return to agenda</a>
-		</section>
+    <section>
+      <h1>Q & A</h1>
+      <br/><br/>
+      <a href="./index.html#/2">Return to agenda</a>
+    </section>
 
-	</div>
+  </div>
 </div>
 <script src="./lib/lib/js/head.min.js"></script>
 <script src="./lib/js/reveal.js"></script>
