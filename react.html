@@ -133,10 +133,10 @@ var html    = template(context);
 				<li class="fragment fade-in">Modular</li>
 				<li class="fragment fade-in">Dynamic</li>
 			</ul>
-			<!--<aside>-->
-				<!--Components let you split the UI into independent and reusable pieces-->
-				<!--You can think about each piece in isolation-->
-			<!--</aside>-->
+			<aside class='notes'>
+				Components let you split the UI into independent and reusable pieces
+				You can think about each piece in isolation
+			</aside>
 		</section>
 		<section data-transition="none">
 			<h3>How can we break this down into components?</h3>
@@ -244,8 +244,7 @@ CommentItem.defaultProps = {
 		</section>
 		<section>
 			<h2>Proptypes</h2>
-			<pre><code>
-import PropTypes from "prop-types";
+			<pre><code>import PropTypes from "prop-types";
 
 class CommentItem extends React.Component {
   render() {
@@ -323,8 +322,7 @@ const comments = [{
 		</section>
 		<section>
 			<h3>Sample Movie Data </h3>
-			<pre><code>
-const movies = [{
+			<pre style='font-size: 18px;'><code>const movies = [{
   Title: "X-Men: The Last Stand",
   Year : "2006",
   Type : "movie"
