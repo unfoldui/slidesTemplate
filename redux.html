@@ -30,21 +30,18 @@
 	<!-- Any section element inside of this container is displayed as a slide -->
 	<div class="slides">
 		<section>
-			<h1>Data/State management in SPA</h1>
-		</section>
-		<section>
-			<h2>Patterns</h2>
-			<ul>
-				<li>No framework (imperative)</li>
-				<li>Framework based pattern</li>
+			<h2>State management in SPA</h2>
+			<ul class="fragment">
+				<li>No framework (Imperative)</li>
+				<li>Pattern based frameworks</li>
 			</ul>
 		</section>
 		<section>
-			<h4>Framework based pattern</h4>
+			<h2>Pattern based frameworks</h2>
 			<ul>
 				<li>MVC - Backbone JS</li>
-				<li>MV* - Angular JS</li>
-				<li>Flux - Reflux, Redux</li>
+				<li>MV* - Angular JS, Ember Js etc...</li>
+				<li>Flux - Reflux, Redux, Vue Js (Vuex)</li>
 			</ul>
 		</section>
 		<section>
@@ -235,11 +232,11 @@ return combineReducers({
 		</section>
 		<section>
 			<h2>Writing logic in the reducer</h2>
-			<img class="fragment" height="550" src="images/reducer-todo-1.png"/>
+			<img class="fragment" height="500" src="images/reducer-todo-1.png"/>
 		</section>
 		<section>
 			<h2>Writing a reducer</h2>
-			<img height="550" src="./images/reducer-todo-2.png"/>
+			<img height="500" src="./images/reducer-todo-2.png"/>
 		</section>
 		<section>
 			<h2>Dispatching Actions</h2>
@@ -298,10 +295,11 @@ store.dispatch(toggleTodo(1))
 
 		<section>
 			<h2>Let's design the view layer</h2>
-		</section>
-
-		<section>
-			<h2>Two types of views</h2>
+			<p>Views can be categorized in to two types</p>
+			<ul class="fragment">
+				<li>Presentational components</li>
+				<li>Container components</li>
+			</ul>
 		</section>
 
 		<section>
@@ -312,6 +310,10 @@ store.dispatch(toggleTodo(1))
 		<section>
 			<h2>Todo component</h2>
 			<img src="./images/todo.png"/>
+		</section>
+
+		<section>
+			<h2>Two types of views</h2>
 		</section>
 
 		<section data-transition="none">
