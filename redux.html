@@ -35,20 +35,40 @@
 				<li>No framework (Imperative)</li>
 				<li>Pattern based frameworks</li>
 			</ul>
+			<aside class="notes">
+				<ul>
+					<li>Hello and welcome to the 2nd day. Glad, most of you are here</li>
+					<li>Today state management in single page apps, how different frameworks handle state</li>
+					<li>And then how redux does it</li>
+				</ul>
+			</aside>
 		</section>
 		<section>
 			<h2>Pattern based frameworks</h2>
 			<ul>
 				<li>MVC - Backbone JS</li>
 				<li>MV* - Angular JS, Ember Js etc...</li>
-				<li>Flux - Reflux, Redux, Vue Js (Vuex)</li>
+				<li>Flux - Reflux, Redux, Vue Js (Vuex), Mobx etc...</li>
 			</ul>
+			<aside class="notes">
+				<ul>
+					<li>Most sane people go with this option for building their application</li>
+					<li>Because you don't want to re invent the wheel</li>
+					<li>And then how redux does it</li>
+				</ul>
+			</aside>
 		</section>
 		<section>
 			<h4>Backbone JS</h4>
 			<div>
 				<img src="https://addyosmani.com/backbone-fundamentals/img/backbone_mvc.png" width="1000"/>
 			</div>
+			<aside class="notes">
+				<ul>
+					<li>Question: How many of you have worked on Backbone JS</li>
+					<li>Barebones. Gave some rigidity to your application.</li>
+				</ul>
+			</aside>
 		</section>
 		<section>
 			<h4>Angular JS</h4>
@@ -56,6 +76,13 @@
 				<li>Using $rootScope</li>
 				<li>Using angular factory</li>
 			</ul>
+			<aside class="notes">
+				<ul>
+					<li>Comes with its truck load of functionality</li>
+					<li>There are n number of ways to store the application state</li>
+					<li>Some of it in factories, some in controller etc</li>
+				</ul>
+			</aside>
 			<div>
 				<img src="http://www.sitesbay.com/angularjs/images/angularjs-features.png" width="700"/>
 			</div>
@@ -70,6 +97,11 @@
 				<li>Application state is messy</li>
 				<li>Unidirectional data makes for easy debugging</li>
 			</ul>
+			<aside class="notes">
+				<ul>
+					<li>Every functionality you implement, you follow uni directonal pattern</li>
+				</ul>
+			</aside>
 		</section>
 		<section>
 			<h2>Redux</h2>
@@ -102,15 +134,34 @@
 			<p>
 				<img src="./images/redux-life.png" alt="Redux">
 			</p>
+			<aside class="notes">
+				<ul>
+					<li>These folders will be always there in a Redux applications</li>
+				</ul>
+			</aside>
 		</section>
 		<section data-transition="none">
 			<h2>Let's design a TODO Application</h2>
 			<span class="fragment" data-transition="none">In Angular JS</span>
+			<aside class="notes">
+				<ul>
+					<li>Every one knows how a todo app works. Familier with domain</li>
+					<li>Question. Where would you start from?</li>
+					<li>Create todo list, Todo model, controller</li>
+				</ul>
+			</aside>
 		</section>
 		<section data-transition="none">
 			<h2>Let's design a TODO Application</h2>
 			<span>In <strike> Angular JS </strike>&nbsp; Redux  :)</span>
+			<aside class="notes">
+				<ul>
+					<li>Pay attention. Its a bit tricky</li>
+					<li>If you understand this part, you will be able to imagine how any application can be designed the Redux way</li>
+				</ul>
+			</aside>
 		</section>
+
 		<section data-transition="none">
 			<h2>STEP 1: Define your application state.</h2>
 			<p>In Redux, all the application state is stored as a single object.</p>
@@ -130,6 +181,11 @@
   payload: {}
 }
 </code></pre>
+			<aside class="notes">
+				<ul>
+					<li>So, any user interation or programatic operation result in triggering an action</li>
+				</ul>
+			</aside>
 		</section>
 		<section>
 			<h2>STEP 2: Define actions</h2>
@@ -165,6 +221,12 @@ export function toggleTodo(id) {
   }
 }
   </code></pre>
+			<aside class="notes">
+				<ul>
+					<li>Generate the type of object required by redux</li>
+					<li>Composable easily by functions. Returns a new object.</li>
+				</ul>
+			</aside>
 		</section>
 		<section>
 			<h2>STEP 3: Define reducers</h2>
@@ -173,6 +235,12 @@ export function toggleTodo(id) {
 			<pre><code>
 (state, action) => newState
   </code></pre>
+			<aside class="notes">
+				<ul>
+					<li>Nothing but pure functions which change the state</li>
+					<li>Business logic of your application.</li>
+				</ul>
+			</aside>
 		</section>
 		<section>
 			<h2>STEP 3: Define reducers</h2>
@@ -201,7 +269,7 @@ let initialState = {
 import {combineReducers} from "redux"
 import {reducer1} from "../reducer1"
 import {reducer2} from "../reducer2"
-import {reducer3} from "../reducer2"
+import {reducer3} from "../reducer3"
 
 return combineReducers({
   key1: reducer1,
@@ -229,6 +297,11 @@ return combineReducers({
 })
 
   </code></pre>
+			<aside class="notes">
+				<ul>
+					<li>Tell redux which reducer is going to handle what part of your application state</li>
+				</ul>
+			</aside>
 		</section>
 		<section>
 			<h2>Writing logic in the reducer</h2>
@@ -313,7 +386,14 @@ store.dispatch(toggleTodo(1))
 		</section>
 
 		<section>
-			<h2>Two types of views</h2>
+			<h2>Container components</h2>
+			<p>Container components are also React components</p>
+			<img class="fragment" src="./images/container-components-vs-presentational-components.png"/>
+		</section>
+
+		<section>
+			<h2>Where do container components fit</h2>
+			<img height="500" class="fragment" src="./images/container-components.svg"/>
 		</section>
 
 		<section data-transition="none">
