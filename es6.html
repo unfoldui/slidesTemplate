@@ -31,8 +31,8 @@
     <section>
       <h2>Agenda</h2>
       <ul>
-        <li>Arrow Function</li>
         <li>Let and Const</li>
+        <li>Arrow Function</li>
         <li>Destructuring</li>
         <li>Computed Properties</li>
         <li>Default, Rest, Spread</li>
@@ -41,6 +41,44 @@
         <li>Template String</li>
         <li>Lets TDD (some exercise)</li>
       </ul>
+    </section>
+    <section>
+      <h2>Let</h2>
+      <div>Allows for block scoping</div>
+      <pre><code>
+if(true) {
+var y = 1;
+}
+console.log(y); //1
+
+</code></pre>
+      <pre><code>
+if(true) {
+let x = 1;
+}
+console.log(x); //Uncaught ReferenceError: x is not defined
+
+</code></pre>
+    </section>
+    <section>
+      <h2>Const</h2>
+      <div>Allows to declare variables which cant be modified</div>
+      <pre><code>let y = 0;
+
+if(true) {
+y = 1;
+}
+console.log(y); //1
+
+</code></pre>
+      <pre><code>const x = 1;
+
+if(true) {
+x = 1;
+}
+console.log(x); //Uncaught TypeError: Assignment to constant variable.
+
+</code></pre>
     </section>
     <section>
       <h2>Arrows Function</h2>
@@ -85,44 +123,6 @@ person.printFriends = function() {
 person.printFriends = () => {
   this._friends.forEach(f => console.log(`${this._name} knows ${f}`));
 }</code></pre>
-    </section>
-    <section>
-      <h2>Let</h2>
-      <div>Allows for block scoping</div>
-      <pre><code>
-if(true) {
-var y = 1;
-}
-console.log(y); //1
-
-</code></pre>
-      <pre><code>
-if(true) {
-let x = 1;
-}
-console.log(x); //Uncaught ReferenceError: x is not defined
-
-</code></pre>
-    </section>
-    <section>
-      <h2>Const</h2>
-      <div>Allows to declare variables which cant be modified</div>
-      <pre><code>let y = 0;
-
-if(true) {
-y = 1;
-}
-console.log(y); //1
-
-</code></pre>
-      <pre><code>const x = 1;
-
-if(true) {
-x = 1;
-}
-console.log(x); //Uncaught TypeError: Assignment to constant variable.
-
-</code></pre>
     </section>
     <section>
       <h2>Destructuring</h2>
