@@ -32,7 +32,7 @@
     <section>
       <h2>State management in SPA</h2>
       <ul class="fragment">
-        <li>No framework (Imperative)</li>
+        <li>No framework</li>
         <li>Pattern based frameworks</li>
       </ul>
       <aside class="notes">
@@ -447,6 +447,18 @@ store.dispatch(toggleTodo(1))
       <h3>Redux Loop</h3>
       <img style="height: 560px; max-width: initial; max-height: initial; margin-left: -74px;"
            src="./images/redux-loop-1.svg"/>
+    </section>
+
+    <section data-transition="none">
+      <h3>Initialzing Redux store </h3>
+      <p>Redux store takes 3 arguments</p>
+<pre><code>
+import {createStore} from 'redux'
+
+let store = createStore(reducers, initialState, middlewares)
+
+</code></pre>
+
     </section>
 
     <section>
