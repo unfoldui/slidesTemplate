@@ -1,209 +1,209 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>UI Bootcamp</title>
-  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-  <meta name="author" content="Westin">
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="./lib/css/reveal.css">
-  <link rel="stylesheet" href="./lib/css/theme/league.css" id="theme">
-  <!-- Code syntax highlighting -->
-  <link rel="stylesheet" href="./lib/lib/css/androidstudio.css">
-  <!-- Printing and PDF exports -->
-  <script>
+	<meta charset="utf-8">
+	<title>UI Bootcamp</title>
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Westin">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+	<meta name="viewport"
+	      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<link rel="stylesheet" href="./lib/css/reveal.css">
+	<link rel="stylesheet" href="./lib/css/theme/league.css" id="theme">
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="./lib/lib/css/androidstudio.css">
+	<!-- Printing and PDF exports -->
+	<script>
     var link  = document.createElement('link');
     link.rel  = 'stylesheet';
     link.type = 'text/css';
     link.href = window.location.search.match(/print-pdf/gi) ? './lib/css/print/pdf.css' : './lib/css/print/paper.css';
     document.getElementsByTagName('head')[0].appendChild(link);
-  </script>
-  <!--[if lt IE 9]>
-  <script src="./lib/lib/js/html5shiv.js"></script>
-  <![endif]-->
+	</script>
+	<!--[if lt IE 9]>
+	<script src="./lib/lib/js/html5shiv.js"></script>
+	<![endif]-->
 </head>
 <body>
 <div class="reveal">
-  <!-- Any section element inside of this container is displayed as a slide -->
-  <div class="slides">
-    <section>
-      <h2>State management in SPA</h2>
-      <ul class="fragment">
-        <li>No framework</li>
-        <li>Pattern based frameworks</li>
-      </ul>
-      <aside class="notes">
-        <ul>
-          <li>Hello and welcome to the 2nd day. Glad, most of you are here</li>
-          <li>Today state management in single page apps, how different frameworks handle state</li>
-          <li>And then how redux does it</li>
-        </ul>
-      </aside>
-    </section>
-    <section>
-      <h2>Pattern based frameworks</h2>
-      <ul>
-        <li>MVC - Backbone JS</li>
-        <li>MV* - Angular JS, Ember Js etc...</li>
-        <li>Flux - Reflux, Redux, Vue Js (Vuex), Mobx etc...</li>
-      </ul>
-      <aside class="notes">
-        <ul>
-          <li>Most sane people go with this option for building their application</li>
-          <li>Because you don't want to re invent the wheel</li>
-          <li>And then how redux does it</li>
-        </ul>
-      </aside>
-    </section>
-    <section>
-      <h4>Backbone JS</h4>
-      <div>
-        <img src="https://addyosmani.com/backbone-fundamentals/img/backbone_mvc.png" width="1000"/>
-      </div>
-      <aside class="notes">
-        <ul>
-          <li>Question: How many of you have worked on Backbone JS</li>
-          <li>Barebones. Gave some rigidity to your application.</li>
-        </ul>
-      </aside>
-    </section>
-    <section>
-      <h4>Angular JS</h4>
-      <ul>
-        <li>Using $rootScope</li>
-        <li>Using angular factory</li>
-      </ul>
-      <aside class="notes">
-        <ul>
-          <li>Comes with its truck load of functionality</li>
-          <li>There are n number of ways to store the application state</li>
-          <li>Some of it in factories, some in controller etc</li>
-        </ul>
-      </aside>
-      <div>
-        <img src="http://www.sitesbay.com/angularjs/images/angularjs-features.png" width="700"/>
-      </div>
-    </section>
-    <section>
-      <h2>Flux</h2>
-      <img src="./images/flux.png" alt="flux" width="700"/>
-    </section>
-    <section>
-      <h2>Why Flux?</h2>
-      <ul>
-        <li>Application state is messy</li>
-        <li>Unidirectional data makes for easy debugging</li>
-      </ul>
-      <aside class="notes">
-        <ul>
-          <li>Every functionality you implement, you follow uni directonal pattern</li>
-        </ul>
-      </aside>
-    </section>
-    <section>
-      <h2>Redux</h2>
-      <img src="./images/redux-logo.png" alt="Redux" width="200px"
-           style="border:0;box-shadow: none;background: white;padding: 15px;border-radius: 10px;"/>
-      <p><em>Redux is a predictable state container for JavaScript apps.</em></p>
-    </section>
-    <section>
-      <h2>Why Redux?</h2>
-      <ul>
-        <li>Single source of truth
-        </li>
-        <li>State is read-only
-        </li>
-        <li>Changes are made with pure functions called REDUCERS
-        </li>
-        <li>It is tiny (2kB, including dependencies)
-        </li>
-      </ul>
-    </section>
-    <section>
-      <h2>Redux has no relation to React!</h2>
-      <p class="fragment">You can write Redux apps with React, Angular, Ember, jQuery, or vanilla JavaScript.</p>
-      <p class="fragment">
-        That said, Redux works especially well with libraries like React
-      </p>
-    </section>
-    <section>
-      <h2>Redux way of working</h2>
-      <p>
-        <img src="./images/redux-life.png" alt="Redux">
-      </p>
-      <aside class="notes">
-        <ul>
-          <li>These folders will be always there in a Redux applications</li>
-        </ul>
-      </aside>
-    </section>
-    <section data-transition="none">
-      <h2>Let's design a TODO Application</h2>
-      <span class="fragment" data-transition="none">In Angular JS</span>
-      <aside class="notes">
-        <ul>
-          <li>Every one knows how a todo app works. Familier with domain</li>
-          <li>Question. Where would you start from?</li>
-          <li>Create todo list, Todo model, controller</li>
-        </ul>
-      </aside>
-    </section>
-    <section data-transition="none">
-      <h2>Let's design a TODO Application</h2>
-      <span>In <strike> Angular JS </strike>&nbsp; Redux  :)</span>
-      <aside class="notes">
-        <ul>
-          <li>Pay attention. Its a bit tricky</li>
-          <li>If you understand this part, you will be able to imagine how any application can be designed the Redux
-            way
-          </li>
-        </ul>
-      </aside>
-    </section>
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+		<section>
+			<h2>State management in SPA</h2>
+			<ul class="fragment">
+				<li>No framework</li>
+				<li>Pattern based frameworks</li>
+			</ul>
+			<aside class="notes">
+				<ul>
+					<li>Hello and welcome to the 2nd day. Glad, most of you are here</li>
+					<li>Today state management in single page apps, how different frameworks handle state</li>
+					<li>And then how redux does it</li>
+				</ul>
+			</aside>
+		</section>
+		<section>
+			<h2>Pattern based frameworks</h2>
+			<ul>
+				<li>MVC - Backbone JS, Ember Js etc...</li>
+				<li>MV* - Angular JS, etc...</li>
+				<li>Flux - Reflux, Redux, Vue Js (Vuex), Mobx etc...</li>
+			</ul>
+			<aside class="notes">
+				<ul>
+					<li>Most sane people go with this option for building their application</li>
+					<li>Because you don't want to re invent the wheel</li>
+					<li>And then how redux does it</li>
+				</ul>
+			</aside>
+		</section>
+		<section>
+			<h4>Backbone JS</h4>
+			<div>
+				<img src="https://addyosmani.com/backbone-fundamentals/img/backbone_mvc.png" width="1000"/>
+			</div>
+			<aside class="notes">
+				<ul>
+					<li>Question: How many of you have worked on Backbone JS</li>
+					<li>Barebones. Gave some rigidity to your application.</li>
+				</ul>
+			</aside>
+		</section>
+		<section>
+			<h4>Angular JS</h4>
+			<ul>
+				<li>Using $rootScope</li>
+				<li>Using angular factory</li>
+			</ul>
+			<aside class="notes">
+				<ul>
+					<li>Comes with its truck load of functionality</li>
+					<li>There are n number of ways to store the application state</li>
+					<li>Some of it in factories, some in controller etc</li>
+				</ul>
+			</aside>
+			<div>
+				<img src="http://www.sitesbay.com/angularjs/images/angularjs-features.png" width="700"/>
+			</div>
+		</section>
+		<section>
+			<h2>Flux</h2>
+			<img src="./images/flux.png" alt="flux" width="700"/>
+		</section>
+		<section>
+			<h2>Why Flux?</h2>
+			<ul>
+				<li>Application state is messy</li>
+				<li>Unidirectional data makes for easy debugging</li>
+			</ul>
+			<aside class="notes">
+				<ul>
+					<li>Every functionality you implement, you follow uni directonal pattern</li>
+				</ul>
+			</aside>
+		</section>
+		<section>
+			<h2>Redux</h2>
+			<img src="./images/redux-logo.png" alt="Redux" width="200px"
+			     style="border:0;box-shadow: none;background: white;padding: 15px;border-radius: 10px;"/>
+			<p><em>Redux is a predictable state container for JavaScript apps.</em></p>
+		</section>
+		<section>
+			<h2>Why Redux?</h2>
+			<ul>
+				<li>Single source of truth
+				</li>
+				<li>State is read-only
+				</li>
+				<li>Changes are made with pure functions called REDUCERS
+				</li>
+				<li>It is tiny (2kB, including dependencies)
+				</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Redux has no relation to React!</h2>
+			<p class="fragment">You can write Redux apps with React, Angular, Ember, jQuery, or vanilla JavaScript.</p>
+			<p class="fragment">
+				That said, Redux works especially well with libraries like React
+			</p>
+		</section>
+		<section>
+			<h2>Redux way of working</h2>
+			<p>
+				<img src="./images/redux-life.png" alt="Redux">
+			</p>
+			<aside class="notes">
+				<ul>
+					<li>These folders will be always there in a Redux applications</li>
+				</ul>
+			</aside>
+		</section>
+		<section data-transition="none">
+			<h2>Let's design a TODO Application</h2>
+			<span class="fragment" data-transition="none">In Angular JS</span>
+			<aside class="notes">
+				<ul>
+					<li>Every one knows how a todo app works. Familier with domain</li>
+					<li>Question. Where would you start from?</li>
+					<li>Create todo list, Todo model, controller</li>
+				</ul>
+			</aside>
+		</section>
+		<section data-transition="none">
+			<h2>Let's design a TODO Application</h2>
+			<span>In <strike> Angular JS </strike>&nbsp; Redux  :)</span>
+			<aside class="notes">
+				<ul>
+					<li>Pay attention. Its a bit tricky</li>
+					<li>If you understand this part, you will be able to imagine how any application can be designed the Redux
+						way
+					</li>
+				</ul>
+			</aside>
+		</section>
 
-    <section data-transition="none">
-      <h2>STEP 1: Define your application state.</h2>
-      <p>In Redux, all the application state is stored as a single object.</p>
-      <img height="500" class="fragment" src="./images/redux-todo-app-state-1.png"/>
-    </section>
-    <section data-transition="none">
-      <h2>STEP 1: Define your application state.</h2>
-      <p>In Redux, all the application state is stored as a single object.</p>
-      <img src="./images/redux-todo-app-state-2.png"/>
-    </section>
-    <section>
-      <h2>STEP 2: Define actions</h2>
-      <p>Actions are payloads of information that send data from your application to your store.</p>
-      <pre><code>// Action object
+		<section data-transition="none">
+			<h2>STEP 1: Define your application state.</h2>
+			<p>In Redux, all the application state is stored as a single object.</p>
+			<img height="500" class="fragment" src="./images/redux-todo-app-state-1.png"/>
+		</section>
+		<section data-transition="none">
+			<h2>STEP 1: Define your application state.</h2>
+			<p>In Redux, all the application state is stored as a single object.</p>
+			<img src="./images/redux-todo-app-state-2.png"/>
+		</section>
+		<section>
+			<h2>STEP 2: Define actions</h2>
+			<p>Actions are payloads of information that send data from your application to your store.</p>
+			<pre><code>// Action object
 {
   type: "UNIQUE_ACTION_IDENTIFIER",
   payload: {}
 }
 </code></pre>
-      <aside class="notes">
-        <ul>
-          <li>So, any user interation or programatic operation result in triggering an action</li>
-        </ul>
-      </aside>
-    </section>
-    <section>
-      <h2>STEP 2: Define actions</h2>
-      <p>Action constants</p>
-      <pre class="fragment"><code>
+			<aside class="notes">
+				<ul>
+					<li>So, any user interation or programatic operation result in triggering an action</li>
+				</ul>
+			</aside>
+		</section>
+		<section>
+			<h2>STEP 2: Define actions</h2>
+			<p>Action constants</p>
+			<pre class="fragment"><code>
 // app/actions/todo.js
 
 const ADD_TODO              = 'ADD_TODO'
 const TOGGLE_TODO           = 'TOGGLE_TODO'
   </code></pre>
-    </section>
+		</section>
 
-    <section>
-      <h2>STEP 2: Define actions</h2>
-      <p>Action creators</p>
-      <pre class="fragment"><code>
+		<section>
+			<h2>STEP 2: Define actions</h2>
+			<p>Action creators</p>
+			<pre class="fragment"><code>
 // app/actions/todo.js
 
 export const ADD_TODO              = 'ADD_TODO'
@@ -223,31 +223,31 @@ export function toggleTodo(id) {
   }
 }
   </code></pre>
-      <aside class="notes">
-        <ul>
-          <li>Generate the type of object required by redux</li>
-          <li>Composable easily by functions. Returns a new object.</li>
-        </ul>
-      </aside>
-    </section>
-    <section>
-      <h2>STEP 3: Define reducers</h2>
-      <p>Reducers specify how the application's state changes in response to actions sent to the store</p>
-      <p>Basic Principle</p>
-      <pre><code>
+			<aside class="notes">
+				<ul>
+					<li>Generate the type of object required by redux</li>
+					<li>Composable easily by functions. Returns a new object.</li>
+				</ul>
+			</aside>
+		</section>
+		<section>
+			<h2>STEP 3: Define reducers</h2>
+			<p>Reducers specify how the application's state changes in response to actions sent to the store</p>
+			<p>Basic Principle</p>
+			<pre><code>
 (state, action) => newState
   </code></pre>
-      <aside class="notes">
-        <ul>
-          <li>Nothing but pure functions which change the state</li>
-          <li>Business logic of your application.</li>
-        </ul>
-      </aside>
-    </section>
-    <section>
-      <h2>STEP 3: Define reducers</h2>
-      <p>Writing a reducer</p>
-      <pre><code>
+			<aside class="notes">
+				<ul>
+					<li>Nothing but pure functions which change the state</li>
+					<li>Business logic of your application.</li>
+				</ul>
+			</aside>
+		</section>
+		<section>
+			<h2>STEP 3: Define reducers</h2>
+			<p>Writing a reducer</p>
+			<pre><code>
 
 // app/reducers/todo.js
 
@@ -256,11 +256,11 @@ export function todoReducer(state, action) {
 }
 
   </code></pre>
-    </section>
-    <section>
-      <h2>STEP 3: Define reducers</h2>
-      <p>Registering reducer to application state</p>
-      <pre><code>
+		</section>
+		<section>
+			<h2>STEP 3: Define reducers</h2>
+			<p>Registering reducer to application state</p>
+			<pre><code>
 
 let initialState = {
   key1: {foo: "bar"},
@@ -280,11 +280,11 @@ return combineReducers({
 })
 
   </code></pre>
-    </section>
-    <section>
-      <h2>STEP 3: Define reducers</h2>
-      <p>Registering reducer to application state</p>
-      <pre><code>
+		</section>
+		<section>
+			<h2>STEP 3: Define reducers</h2>
+			<p>Registering reducer to application state</p>
+			<pre><code>
 
 let initialState = {
   todos: []
@@ -299,23 +299,23 @@ return combineReducers({
 })
 
   </code></pre>
-      <aside class="notes">
-        <ul>
-          <li>Tell redux which reducer is going to handle what part of your application state</li>
-        </ul>
-      </aside>
-    </section>
-    <section>
-      <h2>Writing logic in the reducer</h2>
-      <img class="fragment" height="500" src="images/reducer-todo-1.png"/>
-    </section>
-    <section>
-      <h2>Writing a reducer</h2>
-      <img height="500" src="./images/reducer-todo-2.png"/>
-    </section>
-    <section>
-      <h2>Dispatching Actions</h2>
-      <pre><code>
+			<aside class="notes">
+				<ul>
+					<li>Tell redux which reducer is going to handle what part of your application state</li>
+				</ul>
+			</aside>
+		</section>
+		<section>
+			<h2>Writing logic in the reducer</h2>
+			<img class="fragment" height="500" src="images/reducer-todo-1.png"/>
+		</section>
+		<section>
+			<h2>Writing a reducer</h2>
+			<img height="500" src="./images/reducer-todo-2.png"/>
+		</section>
+		<section>
+			<h2>Dispatching Actions</h2>
+			<pre><code>
 import {addTodo} from "../actions/todo";
 import {store} from "../store"
 
@@ -323,7 +323,7 @@ import {store} from "../store"
 store.dispatch(addTodo("Create a Redux App"))
   </code></pre>
 
-      <pre><code>
+			<pre><code>
 // Updated redux state
 {
   todos: [
@@ -335,10 +335,10 @@ store.dispatch(addTodo("Create a Redux App"))
   ]
 }
   </code></pre>
-    </section>
-    <section>
-      <h2>Dispatching Actions</h2>
-      <pre><code>
+		</section>
+		<section>
+			<h2>Dispatching Actions</h2>
+			<pre><code>
 import {toggleTodo} from "../actions/todo";
 import {store} from "../store"
 
@@ -346,7 +346,7 @@ import {store} from "../store"
 store.dispatch(toggleTodo(1))
   </code></pre>
 
-      <pre><code>
+			<pre><code>
 // Updated redux state
 {
   todos: [
@@ -358,116 +358,116 @@ store.dispatch(toggleTodo(1))
   ]
 }
   </code></pre>
-    </section>
-    <section>
-      <h1>That's all</h1>
-    </section>
+		</section>
+		<section>
+			<h1>That's all</h1>
+		</section>
 
-    <section>
-      <h2>Connecting Redux with React</h2>
-      <img src="./images/react-redux.png" alt="flux" width="700"/>
-    </section>
+		<section>
+			<h2>Connecting Redux with React</h2>
+			<img src="./images/react-redux.png" alt="flux" width="700"/>
+		</section>
 
-    <section>
-      <h2>Let's design the view layer</h2>
-      <p>Views can be categorized in to two types</p>
-      <ul class="fragment">
-        <li>Presentational components</li>
-        <li>Container components</li>
-      </ul>
-    </section>
+		<section>
+			<h2>Let's design the view layer</h2>
+			<p>Views can be categorized in to two types</p>
+			<ul class="fragment">
+				<li>Presentational components</li>
+				<li>Container components</li>
+			</ul>
+		</section>
 
-    <section>
-      <h2>TodoList component</h2>
-      <img src="./images/todo-list.png"/>
-    </section>
+		<section>
+			<h2>TodoList component</h2>
+			<img src="./images/todo-list.png"/>
+		</section>
 
-    <section>
-      <h2>Todo component</h2>
-      <img src="./images/todo.png"/>
-    </section>
+		<section>
+			<h2>Todo component</h2>
+			<img src="./images/todo.png"/>
+		</section>
 
-    <section>
-      <h2>Container components</h2>
-      <p>Container components are also React components</p>
-      <img class="fragment" src="./images/container-components-vs-presentational-components.png"/>
-    </section>
+		<section>
+			<h2>Container components</h2>
+			<p>Container components are also React components</p>
+			<img class="fragment" src="./images/container-components-vs-presentational-components.png"/>
+		</section>
 
-    <section>
-      <h2>Where do container components fit</h2>
-      <img height="500" class="fragment" src="./images/container-components.svg"/>
-    </section>
+		<section>
+			<h2>Where do container components fit</h2>
+			<img height="500" class="fragment" src="./images/container-components.svg"/>
+		</section>
 
-    <section data-transition="none">
-      <h2>TodoList Container</h2>
-      <img src="./images/todo-container.png"/>
-    </section>
+		<section data-transition="none">
+			<h2>TodoList Container</h2>
+			<img src="./images/todo-container.png"/>
+		</section>
 
-    <section data-transition="none">
-      <h2>TodoList Container</h2>
-      <img src="./images/todo-container-1.png"/>
-    </section>
+		<section data-transition="none">
+			<h2>TodoList Container</h2>
+			<img src="./images/todo-container-1.png"/>
+		</section>
 
-    <section>
-      <h2>TodoList Container</h2>
-      <img src="./images/todo-container-2.png"/>
-    </section>
+		<section>
+			<h2>TodoList Container</h2>
+			<img src="./images/todo-container-2.png"/>
+		</section>
 
-    <section>
-      <h2>Rendering a Container component</h2>
-      <img src="./images/todo-container-3.png"/>
-    </section>
+		<section>
+			<h2>Rendering a Container component</h2>
+			<img src="./images/todo-container-3.png"/>
+		</section>
 
-    <section data-transition="none">
-      <h3>Connecting the dots</h3>
-      <img style="height: 560px; max-width: initial; max-height: initial; margin-left: -74px;"
-           src="./images/redux-flow-todo.svg"/>
-    </section>
-    <section data-transition="none">
-      <h3>Connecting the dots</h3>
-      <img style="height: 560px; max-width: initial; max-height: initial; margin-left: -74px;"
-           src="./images/redux-flow-todo-2.svg"/>
-    </section>
+		<section data-transition="none">
+			<h3>Connecting the dots</h3>
+			<img style="height: 560px; max-width: initial; max-height: initial; margin-left: -74px;"
+			     src="./images/redux-flow-todo.svg"/>
+		</section>
+		<section data-transition="none">
+			<h3>Connecting the dots</h3>
+			<img style="height: 560px; max-width: initial; max-height: initial; margin-left: -74px;"
+			     src="./images/redux-flow-todo-2.svg"/>
+		</section>
 
-    <section data-transition="none">
-      <h2>Exercise time!</h2>
-    </section>
+		<section data-transition="none">
+			<h2>Exercise time!</h2>
+		</section>
 
-    <section data-transition="none">
-      <h2>React Redux Scaffolding</h2>
-      <p><a href="https://goo.gl/5PMexv">https://goo.gl/5PMexv</a></p>
-    </section>
+		<section data-transition="none">
+			<h2>React Redux Scaffolding</h2>
+			<p><a href="https://goo.gl/5PMexv">https://goo.gl/5PMexv</a></p>
+		</section>
 
-    <section data-transition="none">
-      <h3>Redux Loop</h3>
-      <img style="height: 560px; max-width: initial; max-height: initial; margin-left: -74px;"
-           src="./images/redux-life.png"/>
-    </section>
-    <section data-transition="none">
-      <h3>Redux Loop</h3>
-      <img style="height: 560px; max-width: initial; max-height: initial; margin-left: -74px;"
-           src="./images/redux-loop-1.svg"/>
-    </section>
+		<section data-transition="none">
+			<h3>Redux Loop</h3>
+			<img style="height: 560px; max-width: initial; max-height: initial; margin-left: -74px;"
+			     src="./images/redux-life.png"/>
+		</section>
+		<section data-transition="none">
+			<h3>Redux Loop</h3>
+			<img style="height: 560px; max-width: initial; max-height: initial; margin-left: -74px;"
+			     src="./images/redux-loop-1.svg"/>
+		</section>
 
-    <section data-transition="none">
-      <h3>Initialzing Redux store </h3>
-      <p>Redux store takes 3 arguments</p>
-<pre><code>
+		<section data-transition="none">
+			<h3>Initialzing Redux store </h3>
+			<p>Redux store takes 3 arguments</p>
+			<pre><code>
 import {createStore} from 'redux'
 
 let store = createStore(reducers, initialState, middlewares)
 
 </code></pre>
 
-    </section>
+		</section>
 
-    <section>
-      <h1>Q & A</h1>
-      <br/><br/>
-      <a href="./index.html#/2">Return to agenda</a>
-    </section>
+		<section>
+			<h1>Q & A</h1>
+			<br/><br/>
+			<a href="./index.html#/2">Return to agenda</a>
+		</section>
 
-  </div>
+	</div>
 </div>
 <script src="./lib/lib/js/head.min.js"></script>
 <script src="./lib/js/reveal.js"></script>
