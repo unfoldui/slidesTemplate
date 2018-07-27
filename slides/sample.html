@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Unfold UI</title>
+	<meta name="description" content="Unfold UI">
+	<meta name="author" content="">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+	<meta name="viewport"
+	      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<link rel="stylesheet" href="../lib/css/reveal.css">
+	<link rel="stylesheet" href="../lib/css/theme/league.css" id="theme">
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="../lib/lib/css/androidstudio.css">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link  = document.createElement('link');
+		link.rel  = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? './lib/css/print/pdf.css' : './lib/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+
+		<section>
+			<div style="margin: 0 auto;width: 50%;">
+				<img style="background: none; border: none; box-shadow: none; " src="../images/unfold.svg"/>
+			</div>
+			<div style="height: 50px; margin-top: 20px;"><img style="background: none; border: none; box-shadow: none; " src="../images/tw.svg"/></div>
+		</section>
+
+		<section>
+			<div style="float: left; width: 33%;">
+				<img style="background: none; border: none; box-shadow: none; padding-top: 70px " src="../images/tw.svg"/>
+				<img style="background: none; border: none; box-shadow: none; " src="../images/unfold.svg"/>
+			</div>
+			<div style="float: left; width: 66%;">
+				<h1>YOUR TALK TOPIC</h1>
+			</div>
+		</section>
+
+		<section>
+			<h1>H1 - Big Title</h1>
+		</section>
+		<section>
+			<h2>List Title</h2>
+			<ul>
+				<li class="fragment fade-in">List Item</li>
+				<li class="fragment fade-in">List Item</li>
+				<li class="fragment fade-in">List Item</li>
+				<li class="fragment fade-in">List Item</li>
+				<li class="fragment fade-in">List Item</li>
+			</ul>
+		</section>
+		<section>
+
+			<section>
+				<h2>H2 - Title, press key down</h2>
+			</section>
+
+			<section>
+				<h4>H4 - Section child, also a section. Aligns itself like this, vertically. Arrow down</h4>
+				<h3>H3 - Title, add image like this</h3>
+				<img src="../images/tools.png"/>
+			</section>
+
+			<section>
+				<h3>Workflow</h3>
+				<div class="fragment" style="float: left; width: 33%;">
+					<h5>This is a fragment</h5>
+					<ul>
+						<li>list item</li>
+						<li>list item</li>
+						<li>list item</li>
+						<li>list item</li>
+					</ul>
+				</div>
+
+				<div class="fragment" style="float: left; width: 33%;">
+					<h5>This is a fragment</h5>
+					<ul>
+						<li>list item</li>
+						<li>list item</li>
+						<li>list item</li>
+						<li>list item</li>
+					</ul>
+				</div>
+
+				<div class="fragment" style="float: left; width: 33%;">
+					<h5>This is a fragment</h5>
+					<ul>
+						<li>list item</li>
+						<li>list item</li>
+						<li>list item</li>
+						<li>list item</li>
+					</ul>
+				</div>
+
+			</section>
+
+		</section>
+		<section>
+			<h3>Add code like this, it does not understand JSX though</h3>
+			<pre><code>grunt.initConfig({
+    sass: {
+        dist: {
+            files: [{
+                src: 'dev/*.scss',
+                dest: '.tmp/styles',
+                expand: true,
+                ext: '.css'
+            }]
+        }
+    },
+    autoprefixer: {
+        dist: {
+            files: [{
+                expand: true,
+                cwd: '.tmp/styles',
+                src: '{,*/}*.css',
+                dest: 'css/styles'
+            }]
+        }
+    },
+    watch: {
+        styles: {
+            files: ['dev/*.scss'],
+            tasks: ['sass:dist', 'autoprefixer:dist']
+        }
+    }
+});
+grunt.registerTask('default', ['styles', 'watch']);
+                    </code></pre>
+		</section>
+		<section>
+			<h2>Add multiple code blocks and it looks like this</h2>
+			<pre><code>
+if(true) {
+  var y = 1;
+}
+console.log(y); //1
+
+</code></pre>
+			<pre><code>
+if(true) {
+  let x = 1;
+}
+console.log(x); //Uncaught ReferenceError: x is not defined
+
+</code></pre>
+		</section>
+		<section>
+			<h2>TEXT IN CODE</h2>
+			<div class="fragment fade-in">
+					<pre><code>class Welcome extends React.Component {
+  render() {
+    return <h1>Hello!</h1>;
+  }
+}
+					  </code></pre>
+			</div>
+			<div class="fragment fade-in">
+				<pre><code>< Welcome /></code></pre>
+			</div>
+		</section>
+	</div>
+</div>
+
+
+<script src="../lib/lib/js/head.min.js"></script>
+<script src="../lib/js/reveal.js"></script>
+<script src="../js/app.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+	Reveal.initialize(revealConfig);
+</script>
+</body>
+</html>
